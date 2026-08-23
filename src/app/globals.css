@@ -1,0 +1,403 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f8fa;
+  --foreground: #101522;
+  --muted: #5f6878;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --border: #e4e7ec;
+  --accent: #635bff;
+  --accent-fg: #ffffff;
+  --accent-muted: #eeecff;
+  --focus: #4038c8;
+  --observed: #20b8a6;
+  --inferred: #e5a83b;
+  --reasoning: #4285f4;
+  --risk-low: #2e9d71;
+  --risk-medium: #e5a83b;
+  --risk-high: #e07a5f;
+  --danger: #e07a5f;
+  --ring: #635bff;
+  --grid: #e8ebf0;
+  --mock-bg: #0d111a;
+  --mock-panel: #141a24;
+  --mock-panel-elevated: #19212e;
+  --mock-text: #f5f7fa;
+  --mock-muted: #99a4b4;
+  --mock-indigo: #7c74ff;
+  --mock-teal: #31c8b4;
+  --mock-amber: #f5be57;
+  --mock-border: #252d3d;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-muted: var(--accent-muted);
+  --color-focus: var(--focus);
+  --color-observed: var(--observed);
+  --color-inferred: var(--inferred);
+  --color-reasoning: var(--reasoning);
+  --color-risk-low: var(--risk-low);
+  --color-risk-medium: var(--risk-medium);
+  --color-risk-high: var(--risk-high);
+  --color-danger: var(--danger);
+  --color-ring: var(--ring);
+  --color-grid: var(--grid);
+  --color-mock-bg: var(--mock-bg);
+  --color-mock-panel: var(--mock-panel);
+  --color-mock-panel-elevated: var(--mock-panel-elevated);
+  --color-mock-text: var(--mock-text);
+  --color-mock-muted: var(--mock-muted);
+  --color-mock-indigo: var(--mock-indigo);
+  --color-mock-teal: var(--mock-teal);
+  --color-mock-amber: var(--mock-amber);
+  --color-mock-border: var(--mock-border);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-sans);
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+html {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+body {
+  min-height: 100%;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  color: var(--foreground);
+  background-color: var(--background);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 48px 48px, 48px 48px;
+}
+
+::selection {
+  background: var(--accent-muted);
+  color: var(--foreground);
+}
+
+h1,
+h2 {
+  font-family: inherit;
+  letter-spacing: -0.03em;
+}
+
+.gtm-glow {
+  background-image: none;
+}
+
+.gtm-panel {
+  background: var(--surface);
+  box-shadow:
+    0 0 0 1px var(--border),
+    0 16px 48px color-mix(in oklab, var(--accent) 12%, transparent);
+}
+
+.gtm-glass {
+  background: color-mix(in oklab, var(--surface) 90%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+.mock-ui {
+  background: var(--mock-bg);
+  color: var(--mock-text);
+  border: 1px solid var(--mock-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 64px color-mix(in oklab, var(--mock-indigo) 28%, transparent);
+}
+
+.integration-hub-grid {
+  background-color: var(--mock-bg);
+  background-image:
+    radial-gradient(circle at center, color-mix(in oklab, var(--mock-indigo) 8%, transparent), transparent 55%),
+    radial-gradient(circle, color-mix(in oklab, var(--mock-muted) 35%, transparent) 1px, transparent 1px);
+  background-size: auto, 20px 20px;
+}
+
+.mock-panel {
+  background: var(--mock-panel);
+  border: 1px solid var(--mock-border);
+  border-radius: var(--radius-md);
+}
+
+.mock-label {
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--mock-muted);
+}
+
+.mock-mono {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.hero-grid {
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 40px 40px, 40px 40px;
+}
+
+.flash-edge {
+  position: relative;
+  overflow: hidden;
+}
+
+.flash-edge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    color-mix(in oklab, var(--mock-teal) 35%, transparent) 45%,
+    color-mix(in oklab, var(--accent) 40%, transparent) 55%,
+    transparent 100%
+  );
+  opacity: 0;
+  pointer-events: none;
+  animation: flash-pass 5s ease-in-out infinite;
+}
+
+.shine-text {
+  background-image: linear-gradient(
+    110deg,
+    var(--accent) 30%,
+    color-mix(in oklab, var(--observed) 80%, white) 50%,
+    var(--accent) 70%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.lift {
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.spark-line {
+  stroke-dasharray: 320;
+  stroke-dashoffset: 320;
+}
+
+.meter-arc {
+  stroke-dasharray: 160;
+  stroke-dashoffset: 160;
+}
+
+.bar-fill {
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.flow-line {
+  stroke-dasharray: 240;
+  stroke-dashoffset: 240;
+}
+
+.evidence-reveal {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.evidence-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float-y {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes draw-line {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes grow-x {
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes shimmer-text {
+    0% {
+      background-position: 140% 0;
+    }
+    100% {
+      background-position: -40% 0;
+    }
+  }
+
+  @keyframes flash-pass {
+    0% {
+      transform: translateX(-120%);
+      opacity: 0;
+    }
+    15% {
+      opacity: 0.5;
+    }
+    30% {
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(120%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes border-breathe {
+    0%,
+    100% {
+      box-shadow: 0 0 0 1px color-mix(in oklab, var(--accent) 20%, transparent);
+    }
+    50% {
+      box-shadow:
+        0 0 0 1px color-mix(in oklab, var(--accent) 45%, transparent),
+        0 0 20px color-mix(in oklab, var(--accent) 20%, transparent);
+    }
+  }
+
+  @keyframes pulse-soft {
+    0%,
+    100% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .js-ready .reveal-pending {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.65s ease both;
+  }
+
+  .animate-float {
+    animation: float-y 5s ease-in-out infinite;
+  }
+
+  .shine-text {
+    animation: shimmer-text 5s linear infinite;
+  }
+
+  .spark-line,
+  .flow-line {
+    animation: draw-line 1.4s ease forwards;
+  }
+
+  .spark-dot {
+    animation: pulse-soft 2s ease-in-out infinite;
+  }
+
+  .meter-arc {
+    animation: draw-line 1.2s ease 0.15s forwards;
+  }
+
+  .bar-fill {
+    animation: grow-x 0.85s ease forwards;
+  }
+
+  .delay-1 {
+    animation-delay: 0.08s;
+  }
+
+  .delay-2 {
+    animation-delay: 0.16s;
+  }
+
+  .delay-3 {
+    animation-delay: 0.24s;
+  }
+
+  .delay-4 {
+    animation-delay: 0.32s;
+  }
+
+  .evidence-reveal.is-visible {
+    transition:
+      opacity 0.45s ease,
+      transform 0.45s ease;
+  }
+
+  .lift:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px color-mix(in oklab, var(--accent) 14%, transparent);
+  }
+
+  .breathe-border {
+    animation: border-breathe 3.5s ease-in-out infinite;
+  }
+
+  .node-pulse {
+    animation: pulse-soft 2.8s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .bar-fill,
+  .spark-line,
+  .meter-arc,
+  .flow-line {
+    transform: none;
+    stroke-dashoffset: 0;
+  }
+
+  .evidence-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
