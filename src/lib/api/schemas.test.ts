@@ -1,4 +1,4 @@
-/** Phase 2 — ensures static mock bundle matches API contract before deploy. */
+/** Phase 2 - ensures static mock bundle matches API contract before deploy. */
 import { describe, expect, it } from "vitest";
 
 import { mockHomeDemoData } from "@/config/home-demo-data";

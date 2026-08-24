@@ -12,7 +12,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Contact",
   description:
-    "Request early access, book a demo, or join the Antarang design partner program. No public free trial.",
+    "Request early access, book a demo, or join the Nudgeio design partner program. No public free trial.",
   path: ROUTES.contact,
 });
 
@@ -32,7 +32,7 @@ export default async function Page({
       <Reveal>
         <Breadcrumbs items={[{ href: ROUTES.contact, label: "Contact" }]} />
         <PageHero
-          title="Talk to Antarang"
+          title="Talk to Nudgeio"
           description="Request early access, book a demo, or join the design partner program. We do not offer a public free trial on this site."
         />
       </Reveal>
@@ -41,8 +41,8 @@ export default async function Page({
           <ColorNavCard
             href={`${ROUTES.contact}?intent=demo`}
             title="Book a demo"
-            description="See Antarang in action"
-            accent="indigo"
+            description="See Nudgeio in action"
+            accent="teal"
           />
           <ColorNavCard
             href={`${ROUTES.contact}?intent=early-access`}

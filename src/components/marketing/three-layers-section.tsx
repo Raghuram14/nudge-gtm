@@ -5,7 +5,7 @@ const layers = [
     n: "1",
     title: "Metrics",
     question: "What changed?",
-    detail: "Cycle time, deploy frequency, blocked work — entry points, not the full story.",
+    detail: "Cycle time, deploy frequency, blocked work - entry points, not the full story.",
   },
   {
     n: "2",
@@ -17,7 +17,7 @@ const layers = [
     n: "3",
     title: "Reasoning",
     question: "Why did it happen?",
-    detail: "Evidence-backed explanations with supporting signals — not isolated numbers.",
+    detail: "Evidence-backed explanations with supporting signals - not isolated numbers.",
   },
 ] as const;
 
@@ -50,7 +50,7 @@ export function ThreeLayersSection(): React.ReactElement {
         ))}
       </ol>
       <p className="mt-6 max-w-3xl text-sm text-muted">
-        Antarang spans Layer 2 and Layer 3 while still showing the metrics that point you where to
+        Nudgeio spans Layer 2 and Layer 3 while still showing the metrics that point you where to
         investigate. The differentiator is the connected reasoning layer underneath the dashboard.
       </p>
     </div>

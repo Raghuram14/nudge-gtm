@@ -25,14 +25,14 @@ const trustLinks = [
   {
     href: ROUTES.trustNoSurveillance,
     title: "No surveillance",
-    description: "Systems and outcomes — not individual scorecards.",
+    description: "Systems and outcomes - not individual scorecards.",
   },
 ] as const;
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Trust",
   description:
-    "How Antarang intends to treat engineering data: team and process health, evidence, and no employee surveillance. No fabricated certifications.",
+    "How Nudgeio intends to treat engineering data: team and process health, evidence, and no employee surveillance. No fabricated certifications.",
   path: ROUTES.trust,
 });
 
@@ -60,7 +60,7 @@ export default function Page(): React.ReactElement {
           href={ROUTES.contact}
           title="Contact"
           description="Request early access, book a demo, or join the design partner program."
-          accent="violet"
+          accent="slate"
         />
       </div>
     </SimplePage>

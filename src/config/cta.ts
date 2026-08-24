@@ -14,12 +14,12 @@ export type CtaIntent = z.infer<typeof ctaIntentSchema>;
 export const ctaConfig = {
   seeInAction: {
     id: "see-in-action",
-    label: "See Antarang in action",
+    label: "See Nudgeio in action",
     intent: "demo",
   },
   exploreHowItWorks: {
     id: "explore-how-it-works",
-    label: "Explore how it works",
+    label: "How it works",
     href: ROUTES.platform,
   },
   earlyAccess: {

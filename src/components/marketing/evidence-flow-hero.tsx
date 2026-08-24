@@ -1,4 +1,4 @@
-/** Phase 1 — hero mock card; receives evidence + investigation via props (no config imports). */
+/** Phase 1 - hero mock card; receives evidence + investigation via props (no config imports). */
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";

@@ -1,4 +1,4 @@
-/** Interactive walkthrough — Phase 1 client UI; data via props from server loader. */
+/** Interactive walkthrough - Phase 1 client UI; data via props from server loader. */
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";

@@ -14,6 +14,15 @@ const contentSecurityPolicy = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  async redirects() {
+    return [
+      {
+        source: "/compare/antarang-vs-hatica",
+        destination: "/compare/nudgeio-vs-hatica",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

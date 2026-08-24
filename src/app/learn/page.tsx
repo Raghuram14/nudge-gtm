@@ -23,7 +23,7 @@ export default function Page(): React.ReactElement {
       description="Explainers for engineering leaders. Not doorway SEO pages."
     >
       <div className="mb-8 grid gap-3 sm:grid-cols-3">
-        <ColorNavCard href={ROUTES.blog} title="Blog" description="Dated notes" accent="indigo" />
+        <ColorNavCard href={ROUTES.blog} title="Blog" description="Dated notes" accent="teal" />
         <ColorNavCard
           href={ROUTES.research}
           title="Research"
@@ -34,7 +34,7 @@ export default function Page(): React.ReactElement {
           href={ROUTES.compare}
           title="Compare"
           description="Category gaps"
-          accent="violet"
+          accent="slate"
         />
       </div>
       {posts.length === 0 ? (

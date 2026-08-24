@@ -40,7 +40,7 @@ export function IntegrationDetailPage({
         </Badge>
       </div>
       <h2 className="text-xl font-semibold text-foreground">What connects</h2>
-      <p>{integration.name} as a source of engineering context — not as the product itself.</p>
+      <p>{integration.name} as a source of engineering context - not as the product itself.</p>
       <h2 className="text-xl font-semibold text-foreground">What data we intend to use</h2>
       <p>{dataUse}</p>
       <h2 className="text-xl font-semibold text-foreground">How it becomes graph context</h2>

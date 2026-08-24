@@ -27,7 +27,7 @@ export const seoLandingPages: ReadonlyArray<SeoLandingPageContent> = [
       },
       {
         heading: "What engineering intelligence adds",
-        body: "Connected context, relationships, organizational memory, and evidence-backed reasoning — not another wall of charts.",
+        body: "Connected context, relationships, organizational memory, and evidence-backed reasoning - not another wall of charts.",
       },
     ],
     relatedLinks: [
@@ -46,7 +46,7 @@ export const seoLandingPages: ReadonlyArray<SeoLandingPageContent> = [
     sections: [
       {
         heading: "Context over raw telemetry",
-        body: "Lead with connected context: what changed, what was planned, what broke, and what people knew — not activity counts alone.",
+        body: "Lead with connected context: what changed, what was planned, what broke, and what people knew - not activity counts alone.",
       },
       {
         heading: "Cross-system understanding",
@@ -65,7 +65,7 @@ export const seoLandingPages: ReadonlyArray<SeoLandingPageContent> = [
     description:
       "An engineering knowledge graph represents relationships among systems, services, repositories, issues, decisions, incidents, and changes.",
     intro:
-      "A knowledge graph is not a pitch for a graph database. It is the canonical model of engineering context — entities, relationships, and provenance.",
+      "A knowledge graph is not a pitch for a graph database. It is the canonical model of engineering context - entities, relationships, and provenance.",
     sections: [
       {
         heading: "Why relationships matter",
@@ -93,7 +93,7 @@ export const seoLandingPages: ReadonlyArray<SeoLandingPageContent> = [
       },
       {
         heading: "What to preserve",
-        body: "Decision history, evidence trails, and relationships between changes and outcomes — surfaced when someone asks why something exists.",
+        body: "Decision history, evidence trails, and relationships between changes and outcomes - surfaced when someone asks why something exists.",
       },
     ],
     relatedLinks: [
@@ -106,7 +106,7 @@ export const seoLandingPages: ReadonlyArray<SeoLandingPageContent> = [
     path: ROUTES.aiCodingAgentContext,
     title: "AI coding agent context",
     description:
-      "AI coding agents need repository, architecture, decision, and historical context before modifying a codebase — not just local files.",
+      "AI coding agents need repository, architecture, decision, and historical context before modifying a codebase - not just local files.",
     intro:
       "Generic AI assistants guess from what is in the prompt. Better context produces better investigation, onboarding, planning, and coding assistance.",
     sections: [
@@ -116,7 +116,7 @@ export const seoLandingPages: ReadonlyArray<SeoLandingPageContent> = [
       },
       {
         heading: "Product direction",
-        body: "Antarang's MCP and agent access direction describes graph-backed context with provenance. A public MCP server is not claimed on this site.",
+        body: "Nudgeio's MCP and agent access direction describes graph-backed context with provenance. A public MCP server is not claimed on this site.",
       },
     ],
     relatedLinks: [
@@ -139,7 +139,7 @@ export const seoLandingPages: ReadonlyArray<SeoLandingPageContent> = [
       },
       {
         heading: "What context to provide",
-        body: "System relationships, recent changes, decision history, and evidence trails — not a folder of stale wiki pages.",
+        body: "System relationships, recent changes, decision history, and evidence trails - not a folder of stale wiki pages.",
       },
     ],
     relatedLinks: [{ href: ROUTES.useCases, label: "Use cases: onboarding" }],
@@ -155,7 +155,7 @@ export const seoLandingPages: ReadonlyArray<SeoLandingPageContent> = [
     sections: [
       {
         heading: "The common question",
-        body: "Why does this architecture exist? Answering it requires decisions, incidents, dependencies, and changes — not a single diagram.",
+        body: "Why does this architecture exist? Answering it requires decisions, incidents, dependencies, and changes - not a single diagram.",
       },
       {
         heading: "Evidence-backed recovery",
@@ -174,7 +174,7 @@ export const seoLandingPages: ReadonlyArray<SeoLandingPageContent> = [
     description:
       "Investigate unexpected outcomes by connecting what changed across code, work, dependencies, and incidents.",
     intro:
-      "When delivery slips or quality drops, leaders need to know what changed, what was related, and where to look first — not another status color.",
+      "When delivery slips or quality drops, leaders need to know what changed, what was related, and where to look first - not another status color.",
     sections: [
       {
         heading: "Investigation vs reporting",

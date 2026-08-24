@@ -8,7 +8,7 @@ describe("sitemap contract", () => {
     const entries = sitemap();
     const urls = entries.map((entry) => entry.url);
     expect(urls.some((url) => url.endsWith("/") || url.endsWith("localhost:3000"))).toBe(true);
-    expect(urls.some((url) => url.includes("/compare/antarang-vs-hatica"))).toBe(false);
+    expect(urls.some((url) => url.includes("/compare/nudgeio-vs-hatica"))).toBe(false);
     const noindex = loadArticles("blog").filter((article) => article.frontmatter.noindex);
     for (const article of noindex) {
       expect(urls.some((url) => url.includes(article.frontmatter.slug))).toBe(false);

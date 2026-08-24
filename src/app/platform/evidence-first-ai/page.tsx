@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { AskAntarangPanel } from "@/components/marketing/ask-antarang-panel";
+import { AskNudgeioPanel } from "@/components/marketing/ask-nudgeio-panel";
 import { MachinePageContract } from "@/components/marketing/machine-page-contract";
 import { SimplePage } from "@/components/marketing/simple-page";
 import { Badge } from "@/components/ui/badge";
@@ -9,9 +9,9 @@ import { siteConfig } from "@/config/site";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Evidence-first AI · Ask Antarang",
+  title: "Evidence-first AI · Ask Nudgeio",
   description:
-    "Ask Antarang is evidence-first engineering intelligence: inferences are visually distinct from observed facts, and mock answers on this site are labeled Example.",
+    "Ask Nudgeio is evidence-first engineering intelligence: inferences are visually distinct from observed facts, and mock answers on this site are labeled Example.",
   path: ROUTES.evidenceFirstAi,
 });
 
@@ -33,7 +33,7 @@ export default function Page(): React.ReactElement {
     >
       <p>
         Observed facts use a solid treatment. Inferred answers use a distinct inferred treatment.
-        Confidence is qualitative (high / medium / low) or clearly fake Example percentages — we
+        Confidence is qualitative (high / medium / low) or clearly fake Example percentages - we
         do not manufacture scientific precision.
       </p>
       <div className="flex gap-2">
@@ -41,9 +41,9 @@ export default function Page(): React.ReactElement {
         <Badge tone="inferred">Inferred</Badge>
         <Badge tone="example">Example</Badge>
       </div>
-      <AskAntarangPanel />
+      <AskNudgeioPanel />
       <MachinePageContract
-        what="Ask Antarang: evidence-first questions over graph context."
+        what="Ask Nudgeio: evidence-first questions over graph context."
         who="Leaders investigating delivery risk."
         problem="AI summaries without provenance."
         how="Question → graph retrieval → evidence → labeled inference."

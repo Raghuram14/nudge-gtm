@@ -5,33 +5,33 @@ export type FaqItem = {
 
 export const homeFaqs: ReadonlyArray<FaqItem> = [
   {
-    question: "What is Antarang?",
+    question: "What is Nudgeio?",
     answer:
-      "An engineering intelligence platform that connects evidence and context across your systems so teams can understand what changed, why it changed, and what deserves attention next.",
+      "Nudgeio connects GitHub and Jira into an evidence chain. When engineering metrics move — cycle time, sprint risk, review queues — you get ranked diagnoses you can inspect, then a concrete recommendation (a nudge).",
   },
   {
     question: "How is this different from a dashboard?",
     answer:
-      "Dashboards show isolated metrics. Antarang connects events, artifacts, decisions, relationships, and history so you can reconstruct the story behind an outcome.",
+      "Dashboards show charts. Nudgeio shows the story behind a change: linked PRs, tickets, and review events, competing hypotheses with confidence, and a suggested action. Facts stay visually separate from inferences.",
   },
   {
     question: "What do you connect first?",
     answer:
-      "GitHub and Jira are the current direction. Other sources are coming soon. We do not show fake logos or live customer counts.",
+      "GitHub and Jira are the current direction. Other sources are labeled honestly when they appear. We do not invent customer logos or live counts.",
   },
   {
     question: "Do you rank people?",
     answer:
-      "No. Antarang analyzes systems, context, work, and outcomes — not individual surveillance, scorecards, or top/worst lists.",
+      "No. Nudgeio analyzes systems, work, and outcomes — not individual surveillance, scorecards, or top/worst lists.",
   },
   {
     question: "How does AI fit in?",
     answer:
-      "AI reasoning runs over connected evidence. Answers distinguish observed facts from inferred explanation, with source citations where supported.",
+      "AI reasons over connected evidence. Every claim can open its sources. Observed facts are never presented with the same certainty as inferences.",
   },
   {
     question: "How do we start?",
     answer:
-      "See Antarang in action or explore how it works. There is no public free trial until the product team defines the motion.",
+      "Request to see Nudgeio in action. There is no public free trial until the product team defines that motion.",
   },
 ];

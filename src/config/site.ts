@@ -1,18 +1,18 @@
-/** Global site identity strings — not page-specific copy (those belong in feature configs). */
+/** Global site identity strings - not page-specific copy (those belong in feature configs). */
 import { ROUTES } from "@/config/routes";
 
 export const siteConfig = {
-  name: "Antarang",
-  product: "Antarang",
-  category: "Engineering intelligence platform",
-  tagline: "Understand why engineering changes",
+  name: "Nudgeio",
+  product: "Nudgeio",
+  category: "Engineering intelligence layer",
+  tagline: "The intelligence layer for engineering teams.",
   description:
-    "Antarang connects engineering evidence and context across your systems so teams can understand what changed, why it changed, and what deserves attention next.",
+    "Nudgeio connects engineering evidence across your systems so teams understand what changed, why it changed, and what deserves attention next - with every insight backed by a receipt.",
   visitorSentence:
-    "Antarang connects the context and evidence scattered across your engineering systems, helping leaders and teams understand what changed, why it changed, and what deserves attention next.",
+    "Nudgeio turns fragmented engineering signals into evidence-backed understanding, actionable nudges, and measurable outcomes.",
   knowledgeGraphName: "Engineering Knowledge Graph",
   knowledgeGraphSynonym: "Context Graph",
-  askSurfaceName: "Ask Antarang",
+  askSurfaceName: "Ask Nudgeio",
   locale: "en_US",
   twitterHandle: "",
 } as const;

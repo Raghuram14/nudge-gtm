@@ -1,4 +1,4 @@
-/** Server action — the only live external integration today (`CONTACT_WEBHOOK_URL`). */
+/** Server action - the only live external integration today (`CONTACT_WEBHOOK_URL`). */
 "use server";
 
 import { getServerEnv } from "@/lib/env";

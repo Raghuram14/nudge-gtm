@@ -1,4 +1,4 @@
-/** Phase 3 — thin route: metadata + JSON-LD; delegates UI to async `HomePage`. */
+/** Phase 3 - thin route: metadata + JSON-LD; delegates UI to async `HomePage`. */
 import type { Metadata } from "next";
 
 import { HomePage } from "@/components/home/home-page";

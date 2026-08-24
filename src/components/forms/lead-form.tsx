@@ -1,4 +1,4 @@
-/** Client form wired to the contact server action — pattern for future interactive forms. */
+/** Client form wired to the contact server action - pattern for future interactive forms. */
 "use client";
 
 import { useActionState } from "react";

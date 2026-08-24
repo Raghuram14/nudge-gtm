@@ -1,5 +1,5 @@
 /**
- * Phase 1 — low-level mock constants. Aggregated in `home-demo-data.ts`; not imported by UI.
+ * Phase 1 - low-level mock constants. Aggregated in `home-demo-data.ts`; not imported by UI.
  * Components receive data via props from `getHomeDemoData()` (Phase 3).
  */
 /** Fictional company used consistently across product mockups (GTM creative brief). */
@@ -39,7 +39,7 @@ export const mockInvestigation = {
   corroboratingSources: 5,
   evidenceStrength: "High" as const,
   action:
-    "Investigate the Payments–Ledger dependency. 4 of the affected PRs changed the same integration boundary.",
+    "Investigate the Payments-Ledger dependency. 4 of the affected PRs changed the same integration boundary.",
   explanation: {
     headline: "Why did cycle time increase 31% this month?",
     summary: "The increase is concentrated in Checkout and Payments.",

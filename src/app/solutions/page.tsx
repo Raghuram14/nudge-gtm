@@ -10,7 +10,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Solutions",
   description:
-    "Antarang for engineering leaders, managers, Staff+ engineers, and platform teams. Connected context — not surveillance or vanity metrics.",
+    "Nudgeio for engineering leaders, managers, Staff+ engineers, and platform teams. Connected context - not surveillance or vanity metrics.",
   path: ROUTES.solutions,
 });
 

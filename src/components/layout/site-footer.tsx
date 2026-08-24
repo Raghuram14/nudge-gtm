@@ -31,20 +31,15 @@ function FooterColumn({
 export function SiteFooter(): React.ReactElement {
   return (
     <footer className="mt-auto border-t border-border bg-surface">
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-16 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-3">
         <div>
-          <Link href={ROUTES.home} aria-label="Antarang home">
+          <Link href={ROUTES.home} aria-label="Nudgeio home">
             <BrandMark />
           </Link>
-          <p className="mt-4 text-sm text-muted">{siteConfig.category}</p>
+          <p className="mt-4 max-w-xs text-sm text-muted">{siteConfig.tagline}</p>
         </div>
         <FooterColumn title="Product" items={footerNavigation.product} />
-        <FooterColumn title="Use cases" items={footerNavigation.useCases} />
-        <FooterColumn title="Resources" items={footerNavigation.resources} />
-        <div className="flex flex-col gap-8">
-          <FooterColumn title="Company" items={footerNavigation.company} />
-          <FooterColumn title="Trust" items={footerNavigation.trust} />
-        </div>
+        <FooterColumn title="Company" items={footerNavigation.company} />
       </div>
     </footer>
   );

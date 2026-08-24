@@ -10,7 +10,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Blog",
   description:
-    "Antarang writing on engineering operating systems, context, and evidence-first intelligence. People-first, not a content farm.",
+    "Nudgeio writing on engineering operating systems, context, and evidence-first intelligence. People-first, not a content farm.",
   path: ROUTES.blog,
 });
 
@@ -34,7 +34,7 @@ export default function Page(): React.ReactElement {
           href={ROUTES.compare}
           title="Compare"
           description="Category gaps"
-          accent="violet"
+          accent="slate"
         />
       </div>
       {posts.length === 0 ? (

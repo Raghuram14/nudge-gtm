@@ -10,7 +10,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Use cases",
   description:
-    "Antarang use cases: engineering investigation, architecture understanding, onboarding, project retrospectives, and AI coding context.",
+    "Nudgeio use cases: engineering investigation, architecture understanding, onboarding, project retrospectives, and AI coding context.",
   path: ROUTES.useCases,
 });
 

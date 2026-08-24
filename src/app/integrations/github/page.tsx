@@ -11,7 +11,7 @@ const integration = getIntegrationBySlug("github");
 export const metadata: Metadata = buildPageMetadata({
   title: "GitHub integration",
   description:
-    "How Antarang intends to use GitHub as engineering context: pull requests, reviews, and identity — design-partner scope, not GitHub analytics.",
+    "How Nudgeio intends to use GitHub as engineering context: pull requests, reviews, and identity - design-partner scope, not GitHub analytics.",
   path: ROUTES.integrationsGithub,
 });
 

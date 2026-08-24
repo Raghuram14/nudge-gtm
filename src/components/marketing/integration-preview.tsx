@@ -10,9 +10,9 @@ const previewAccents: ReadonlyArray<AccentTone> = [
   "teal",
   "coral",
   "amber",
-  "indigo",
+  "teal",
   "blue",
-  "violet",
+  "slate",
 ];
 
 export function IntegrationPreview(): React.ReactElement {
@@ -25,7 +25,7 @@ export function IntegrationPreview(): React.ReactElement {
         const accent =
           (primaryCategory ? categoryAccents[primaryCategory] : undefined) ??
           previewAccents[index % previewAccents.length] ??
-          "indigo";
+          "teal";
         const colors = accentTones[accent];
         return (
           <li key={group.id}>

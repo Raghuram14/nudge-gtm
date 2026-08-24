@@ -8,7 +8,7 @@ export function UseCaseCard({
   problem,
   question,
   status,
-  accent = "indigo",
+  accent = "teal",
 }: {
   title: string;
   problem: string;

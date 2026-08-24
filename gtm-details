@@ -1,0 +1,181 @@
+# Nudgeio GTM Feature List — The Exceptional Engineering OS
+
+> **Strategy:** Position as the **Evidence-First Engineering Diagnosis System** — not another dashboard, not another "ask AI" product. Every feature listed here either (a) is genuinely unsolved by all 10+ tracked competitors, or (b) is a table-stakes capability done with a material quality gap that creates switching energy.
+
+> **Reading guide:** Features are clustered into 6 GTM pillars — each pillar maps to a hero section or product page on the website. Within each pillar, features are ordered by GTM impact (most headline-worthy first).
+
+---
+
+## Pillar 1 — The Evidence Machine
+*"Every insight comes with a receipt."*
+
+This is Nudgeio's philosophical moat. Every competitor shows charts and calls them insights. Nudgeio shows **the evidence chain behind every claim** — the specific commits, spec changes, PR comments, Slack threads, and CI failures that caused the pattern. This is not a feature — it is the architecture.
+
+| # | Feature | Why It's Different / Unsolved |
+|---|---------|-------------------------------|
+| 1.1 | **Evidence-Backed Causal Timelines** — Any metric change (cycle time spike, DORA degradation, sprint slip) renders a step-by-step narrative: Trigger → Evidence → Chain of causation → Diagnosis. Every claim is a hyperlinked citation to the source artifact. | Allstacks, Faros, Swarmia, DX all claim "root cause" — none expose an explicit, navigable evidence chain the user can dispute or inspect. |
+| 1.2 | **Competing Hypothesis Engine** — For every diagnosis, Nudgeio surfaces 3 ranked hypotheses with individual confidence scores and the evidence supporting (or contradicting) each. "Primary: review congestion — 84%. Secondary: late spec expansion — 61%. Weak: external dependency blockage — 38%." | No competitor models alternative hypotheses with confidence scores visible to users. All deliver one AI narrative. |
+| 1.3 | **Outcome Validation Loop** — After a diagnosis is accepted and an action is taken, Nudgeio tracks whether the prediction proved correct. "Review congestion diagnosed → review ownership rebalanced → review wait fell 39% over 3 sprints → diagnosis confirmed." | No competitor closes the loop from diagnosis → intervention → outcome proof. The prediction is never verified. |
+| 1.4 | **Evidence Drawer UI** — Any metric tile, any insight card, any causal claim is clickable into a provenance drawer: raw source artifact, extraction method, confidence level. "Show me the Slack message that triggered this." | Every competitor shows aggregated data points. None expose the underlying source with full provenance. |
+| 1.5 | **Fact vs Inference Separation** — Observed facts (commit timestamps, merge events) are visually and architecturally separated from inferences (sentiment, intent, causation). Confidence scores are shown at inference level, not hidden inside a black-box model. | No competitor makes this separation explicit. AI conclusions are presented with the same certainty as raw metrics. |
+
+---
+
+## Pillar 2 — The AI Engineering Governance Platform
+*"When AI writes the code, who's accountable?"*
+
+This is the **first-mover white space** — genuinely unsolved by every competitor. As companies deploy Devin, Claude Code, Cursor Agents, and custom agentic pipelines, they are accumulating governance debt that regulators (EU AI Act 2026, SOX ITGC, SOC 2 CC6, ISO 42001) will demand they close.
+
+| # | Feature | Why It's Different / Unsolved |
+|---|---------|-------------------------------|
+| 2.1 | **AI Agent Registry & Identity** — Register, classify, and govern every AI coding agent deployed in the org. Each agent has: identity, scope, risk tier, human owner, active capabilities. | No competitor models AI agents as first-class governed entities. All have a human-contributor model. Span gets closest on traces, not governance identity. |
+| 2.2 | **Decision Chain Capture** — For every AI-authored PR: capture prompt → context window → chain-of-thought trace → action taken → artifact produced. Stored immutably, queryable. "What was Devin-Agent-07 asked to do? What did it reason? What code did it produce?" | Completely absent in all competitors. Span has post-hoc agent traces; no tool captures the full decision chain at execution time and stores it as governance evidence. |
+| 2.3 | **Oversight Quality Monitor** — Did humans actually review AI-authored diffs, or did they rubber-stamp? Tracks: time-on-review, comment rate, question rate, cross-referenced with diff size and complexity. Surfaces "negligent approval" patterns before they become audit findings. | No competitor distinguishes meaningful human oversight from rubber-stamping on AI code. This is the EU AI Act Article 14 problem. |
+| 2.4 | **AI Code Tagging & Incident Traceability** — Every AI-authored code segment is tagged in the knowledge graph. When a production incident occurs: instantly surfaces whether AI-authored code was in the blast radius, who oversaw it, what the approval context was. | No tool can answer "Was this incident caused by AI-authored code?" in a structured, auditable way. |
+| 2.5 | **Compliance Report Generator** — Auto-generate audit evidence packages mapped to: EU AI Act Article 14 (human oversight), SOX ITGC (change management), SOC 2 CC6, ISO/IEC 42001. 48-hour turnaround from connection to evidence package. | No engineering intelligence tool targets AI-specific compliance. Vanta/Drata do infrastructure compliance; nobody does AI engineering governance compliance. |
+| 2.6 | **Engineering Agent Control Plane** — When multiple AI agents operate in the same pipeline (code review agent + test agent + deployment agent), detect conflicts, enforce sequencing, and provide a unified operator dashboard for human oversight of the full agent fleet. | No competitor has modeled multi-agent conflict detection or sequencing enforcement. Completely novel. |
+| 2.7 | **Rogue Agent Cost Firewall** — A proxy layer that intercepts cloud API calls made by AI agents during coding sessions. Enforces pre-approved cost budgets and auto-destroy TTLs on ephemeral infrastructure. Prevents the "$40k AWS surprise bill" scenario. | No tool has runtime cost enforcement on AI agent sessions. Cloud cost anomaly detection is reactive; this is proactive. |
+| 2.8 | **AI Code Quality Observatory** — Tracks quality metrics (churn rate, bug-fix frequency, complexity growth, incident correlation) separately for AI-authored vs human-authored code. Longitudinal trend: "AI-authored code in Service X is accumulating complexity 3x faster." | DX has AI code percentage reports. No tool tracks quality trajectory of AI-authored code over time with incident correlation. |
+| 2.9 | **Business Logic Security Verifier** — Extracts company-level invariants ("Organization A can never access Organization B's data") and continuously tests that code — especially AI-generated code — satisfies them. Catches conceptual security failures SAST tools miss. | SAST catches syntax-level vulnerabilities. No tool verifies business logic invariants in AI-authored code using property-based testing or formal verification. |
+
+---
+
+## Pillar 3 — The AI PR Decomposer & Smart Review
+*"AI generates code at 100x speed. Reviews can't be 100x slower."*
+
+The PR review queue is the most visible bottleneck created by AI coding adoption. Competitors measure it. Nudgeio eliminates it.
+
+| # | Feature | Why It's Different / Unsolved |
+|---|---------|-------------------------------|
+| 3.1 | **AI PR Micro-Decomposer** — Detects AI-generated or oversized PRs and splits them into logical micro-diffs grouped by dependency graph paths: Database Schema Diff, API Contract Diff, UI Component Diff, Business Logic Diff. Each micro-diff is independently reviewable. | LinearB gitStream has label/approve automation; no tool splits PRs by dependency graph topology. DX measures AI sludge; does not remediate it. |
+| 3.2 | **Graph-Driven Ownership Routing** — Routes each micro-diff to the engineer with the deepest commit history on those specific files — not round-robin, not team assignment. Uses knowledge graph historical contribution lineage. | LinearB gitStream routes by CODEOWNERS. No tool routes by actual knowledge depth on the specific code being changed. |
+| 3.3 | **AI PR Estimated Review Time** — Before a reviewer accepts a PR: estimated time, complexity score, AI authorship %, risk score, and whether the reviewer has genuine module expertise from the knowledge graph. | LinearB gitStream shows ETR. Adding expertise signal from knowledge graph is done by no competitor. |
+| 3.4 | **Real-Time Stale PR Auto-Remediation** — If an assigned reviewer is OOO, unresponsive for 24h, or has become a bottleneck: automatically re-routes to the next-best co-owner and sends a Slack thread with context. Not a notification — a closed-loop action. | LinearB WorkerB sends Slack reminders. No tool re-routes PRs automatically based on reviewer availability + expertise graph. |
+| 3.5 | **Code Review Depth Intelligence** — Distinguishes substantive reviews (questions asked, suggestions made) from rubber-stamp approvals (single LGTM on a 3,000-line diff). Surfaces "review quality" as a team metric — never individual surveillance. | No competitor measures qualitative review engagement. All measure review time and throughput only. |
+| 3.6 | **Pre-Sprint Spec Quality Scoring** — Before sprint planning commits: evaluates Jira epics for feasibility, missing technical criteria, spec vagueness, and historical rework risk from similar past specs. Returns a readiness score with specific deficiency flags. | Allstacks has Product Studio. No tool does adversarial pre-sprint spec auditing backed by historical rework data from the knowledge graph. |
+
+---
+
+## Pillar 4 — The Engineering Knowledge Continuity System
+*"The institutional memory of your engineering organization — never lost again."*
+
+This is the second major first-mover white space. Every tool measures activity. No tool measures what you know.
+
+| # | Feature | Why It's Different / Unsolved |
+|---|---------|-------------------------------|
+| 4.1 | **Knowledge Concentration Risk Monitor** — Scores every module, service, and subsystem by knowledge concentration: unique contributors with real depth, recency weighting, criticality to revenue. Produces a "Bus Factor" map that is quantified and maintained in real-time. | DX, LinearB, Hatica track developer activity but cannot distinguish activity from knowledge depth. CodeScene partially attempts this but is not an operational product. |
+| 4.2 | **"If X Leaves" Departure Simulation** — Model the full impact of any named departure: which code loses coverage, which modules become dangerously unowned, what the incident response capability loss is, the projected velocity impact over 6 months. | Absolutely no competitor has this. The capability is universally understood as valuable and universally unmeasured in production tooling. |
+| 4.3 | **Code Decision Archive (Decision Archaeology Engine)** — LLM-powered retrospective extraction of decision rationale from PR descriptions, linked Jira tickets, Slack threads, and incident retros. Stored linked to specific code locations in the knowledge graph. | ADRs have less than 5% adoption. Git blame shows who, not why. No tool has built a structured decision archive with semantic linkage to code. |
+| 4.4 | **IDE Context Layer (MCP Server)** — When a developer navigates to a code location in Cursor, VSCode, or Claude Code: "Here's why this code exists. Here are 3 decisions that shaped it. Here's the 2023 incident that caused this error handling pattern." Organizational context injected into the AI coding assistant. | DX has a basic MCP server for metric Q&A. No platform exposes the multi-hop knowledge graph — decision provenance, causal chains, incident history — to coding assistants. |
+| 4.5 | **Knowledge Graph Onboarding Engine** — For new hires: personalized knowledge path based on assigned team, role, and services. "10 most important PRs from the last 18 months. The incident that explains the rate limiting pattern. 3 people to talk to before touching the billing module." | Confluence onboarding is universally hated and ineffective. No tool generates a knowledge-graph-driven personalized onboarding path. |
+| 4.6 | **Zombie Service Detector** — Identifies high-value, unowned services using traffic patterns, deployment history, code ownership decay. A critical background service processing $5M/day that hasn't been deployed in 2 years and whose owner left 18 months ago is a ticking risk. | No competitor detects ownership decay on live production services. |
+| 4.7 | **Early Departure Warning System** — Uses declining contribution signals and increasing work isolation to alert at the team level: "Team A is showing declining cross-team collaboration consistent with disengagement patterns." No individual is ever named. | Must be strictly team-level to be ethical. No competitor does this without individual surveillance risk. |
+
+---
+
+## Pillar 5 — The Business-Engineering Intelligence Bridge
+*"Stop explaining engineering in engineering terms."*
+
+The third major white space: the translation gap between engineering reality and business decisions.
+
+| # | Feature | Why It's Different / Unsolved |
+|---|---------|-------------------------------|
+| 5.1 | **Tech Debt Financial Quantifier** — Translates code complexity signals, incident history, PR velocity, and cycle time trends into CFO-legible financial arguments. "This tech debt is costing $Xk/quarter. If we spend 3 sprints refactoring, our model predicts 35% cycle time improvement worth $Yk/quarter." | SonarQube has complexity scores. No tool bridges code quality signals to financial impact calculations at the executive level. |
+| 5.2 | **Engineering-Grade M&A Due Diligence Report** — 48-hour automated report from read-only GitHub/GitLab/Jira access: DORA trend (not point-in-time), knowledge concentration risk (key-man map), tech debt topology, deployment risk, AI tooling maturity, attrition risk signals, valuation adjustment inputs. | M&A technical due diligence is entirely manual professional services. No SaaS product exists. PE firms will pay $50k–$500k per deal. |
+| 5.3 | **Engineering Board Report Generator** — Monthly/quarterly automated narrative report for non-technical board members: delivery velocity trend, reliability score, tech debt trajectory, AI investment impact, team health signals — in business language with peer benchmarking and suggested CTO talking points. | Engineering intelligence tools produce manager dashboards. None generate investor-grade board narratives automatically. CTOs spend 3–5 hours/quarter fabricating these manually. |
+| 5.4 | **Feature-to-Revenue Attribution Chain** — Connects PRs → feature releases → product analytics adoption → revenue/retention impact. Answers: "Engineering spent $8M last year. Which features drove the 20% revenue growth?" | Feature flagging, product analytics, and engineering tools have never been connected into a single attribution chain. Jellyfish gets closest on investment allocation but doesn't close to revenue outcomes. |
+| 5.5 | **Strategy-to-Engineering Alignment Engine** — Reads company OKRs from Notion/Confluence, maps them to Jira epics/projects, tracks real-time effort allocation per OKR, and flags misalignments: "OKR Q3-GROW-1 is Priority 1 but receiving 5% of engineering effort." | Jellyfish, Allstacks, LinearB do allocation reporting. None create a live bidirectional bridge from company strategy documents to actual engineering effort in real-time. |
+| 5.6 | **Architectural Agility Scorer (Pivot Readiness)** — Static analysis that measures how deeply business assumptions are hardcoded into domain logic ("one user per account," "US-East only," "single currency"). Produces a "Pivot Readiness Score" for CTOs evaluating strategic options. | Completely novel. No tool quantifies architectural flexibility as a business capability. |
+| 5.7 | **Release Confidence Score** — Predictive model analyzing code churn, test coverage gaps, author historical defect rates, and service health for the specific PRs in a release. Outputs: "72% probability of critical bug in first 48 hours." Forces objective go/no-go discussions. | DORA gives a lagging CFR metric. No tool gives a pre-ship quantified risk score for a specific release. |
+| 5.8 | **Conway's Law Misalignment Detector** — Continuously monitors team topology health from behavioral data: actual cross-team communication patterns, deployment coupling, cognitive load per team. Alerts: "Your payment feature requires coordination across 5 teams. This is a Conway's Law bottleneck." | Team Topologies is a framework; CodeScene is a data science tool. No operational product continuously monitors team topology alignment from behavioral data. |
+
+---
+
+## Pillar 6 — The Real-Time Engineering Operating System
+*"From passive dashboard to active operating system."*
+
+Every competitor is a read-only BI tool. Nudgeio is a closed-loop operating system that takes actions.
+
+| # | Feature | Why It's Different / Unsolved |
+|---|---------|-------------------------------|
+| 6.1 | **Real-Time Event-Driven Knowledge Graph** — Sub-second graph synchronization from every connected tool via outbox event streaming. Not batch ETL. Not 24-hour sync. The graph reflects the engineering organization as it happens. | Faros uses Airbyte batch ETL. Allstacks is 24-hour refresh. This is an architectural differentiation, not just a feature. |
+| 6.2 | **Closed-Loop Workflow Remediation Engine** — Automated actions across GitHub, Jira, and Slack triggered by diagnosed conditions: stale PR re-routing, sprint risk injection into standup channels, Jira ticket state transitions. Not alerts — completed actions. | LinearB gitStream does PR automation in isolation. Allstacks has passive risk alerts. No tool executes cross-tool closed-loop remediations driven by a causal diagnosis. |
+| 6.3 | **Engineering Practice Compliance Monitor** — Real-time monitoring of whether engineering practices match compliance frameworks (SOC 2, HIPAA, PCI DSS 4.0, EU AI Act): PR review policy adherence, branch protection, secret scanning SLA, CI/CD bypass events. Auto-generates audit evidence packages. | Vanta/Drata monitor infrastructure configuration. No tool monitors engineering practice behavior for compliance in real-time. |
+| 6.4 | **Reorg Intelligence Engine** — Before a reorg: simulates which cross-team workflows break, which modules lose ownership. After a reorg: tracks whether it achieved its stated goals over 6/12 months with behavioral evidence. | Reorgs are decided on whiteboards. No tool provides a data-backed reorg simulator or a post-reorg success tracker. |
+| 6.5 | **Personal Developer Hub (Zero Surveillance by Architecture)** — ICs get a private morning context digest: active PR dependencies, who is blocking what, downstream impact of their work in progress. Zero ranking. Zero output metrics. Enforced by product architecture — not an admin toggle. | DX has personal IC dashboards (surveillance). LinearB has Developer Coaching (surveillance). Nudgeio's IC hub is the only one with privacy enforced architecturally, not configurable away by admin. |
+| 6.6 | **Incident Learning Graph** — Connects every incident retro action item to the specific PRs that supposedly addressed it, then tracks whether the incident pattern recurred. "You've had 3 incidents with this root cause. The December fix was merged but the pattern returned — here's what the fix didn't cover." | PagerDuty manages incidents. Git tracks code. No tool closes the learning loop from incident → retro action item → code fix → pattern validation. |
+| 6.7 | **Flakiness Observatory** — Statistically isolates non-deterministic test failures from real code bugs, tracks flakiness rates by test and service, removes flaky tests from the critical path automatically, and quantifies the cost in delayed CI cycles. | Test flakiness destroys engineering culture ("the test always fails" → CI trust collapse). No engineering intelligence tool measures and actively manages test reliability at the organizational level. |
+| 6.8 | **Supply Chain Security Ownership Router** — Connects SCA findings (Snyk/Dependabot) to knowledge graph code ownership: auto-assigns CVEs to the responsible team, tracks remediation SLA compliance, alerts on dependency ownership transfers and license changes. | Snyk finds vulnerabilities. Engineering intelligence tracks productivity. No tool connects the two into an ownership-routed, SLA-tracked remediation pipeline. |
+| 6.9 | **Automated QMS Bridge for Regulated Industries** — Hooks into Git/CI and automatically translates standard Agile workflows (merge PR, pass automated tests) into FDA/ISO-compliant validation reports and QMS documentation without slowing developers. | MedTech/Defense companies run SDLC and QMS in completely disconnected systems. No tool bridges them. ACV: $200k–$2M/year. |
+
+---
+
+## Pillar 7 — The Intelligence-Native Product Canvas
+*"The PRD is no longer a document. It's a living contract between Product and Engineering — grounded in organizational truth."*
+
+Today, the most consequential decisions in a product organization happen **entirely outside the engineering intelligence system**. A PM opens a Google Doc, writes a PRD in a vacuum, passes it to engineering, and weeks of painful back-and-forth begin — because the PM didn't know the services involved have a bus factor of 1, or that a similar feature caused three production incidents in 2023, or that the acceptance criteria are technically ambiguous against the existing data model. All that organizational context exists in Nudgeio's knowledge graph. But nobody was using it at the moment the PRD was being written.
+
+Nudgeio's Product Canvas is the **first PM-facing product built directly on an engineering knowledge graph**. It doesn't just track features after they're committed — it injects organizational intelligence into the *decision-making moment*, closes the full loop from requirement to incident, and eliminates the context collapse that happens every time a spec crosses the Product–Engineering boundary.
+
+**The full closed loop Nudgeio now owns:**
+
+```
+PRD authored in Nudgeio (with graph intelligence)
+    ↓
+Graph-validated tickets with auto-assigned owners
+    ↓
+Commits → PRs → Code Review (tracked)
+    ↓
+Deployments → Production (tracked)
+    ↓
+Incidents → attributed back to originating requirement
+    ↓
+Outcome loop → feeds next PRD as institutional memory
+```
+
+### Phase 1 — Context-Grounded PRD Creation
+
+| # | Feature | Why It's Different / Unsolved |
+|---|---------|-------------------------------|
+| 7.1 | **Knowledge-Grounded PRD Editor** — A collaborative document editor embedded inside Nudgeio. As a PM types a feature description, the knowledge graph surfaces in real-time: which services will be affected, who the domain experts are, what the historical incident rate is on those services, what similar features cost to build, and which past architectural decisions constrain the implementation. The PM sees engineering reality while writing — not after the spec is "done". | Notion, Confluence, and Google Docs are blank canvases. No writing tool has ever been connected to a live engineering knowledge graph. The PM writing a PRD today has zero organizational context available at authoring time. |
+| 7.2 | **Org-Memory-Powered "Similar Feature" Recall** — When a PM starts a new feature, Nudgeio retrieves: the most similar features built in the past, how long they took vs estimate, what caused their rework, which requirements turned out to be technically infeasible, and what the production outcome was. "In 2023 you built a very similar checkout flow. It took 3x the estimated effort because of an undiscovered dependency on the payment service. The engineer who knew about it had left. Here's what the PRD missed." | No tool surfaces past institutional experience at PRD creation time. Engineering teams repeat the same costly mistakes because every PRD starts from zero. |
+| 7.3 | **Technical Feasibility Advisor (Real-Time)** — As requirements are written, flags in real-time when a stated requirement: contradicts an existing architectural decision, depends on a service with dangerous knowledge concentration, requires cross-team coordination that has historically caused delays, or assumes a data model that doesn't match how the system actually works. Not a post-review comment — a live signal while the PM is still writing. | No competitor sits at the PRD creation moment. Tech feasibility is evaluated by engineers days or weeks later, after the PM has already committed to stakeholders. |
+| 7.4 | **Domain Expert Discovery** — For each section of a PRD, surfaces the engineers with the deepest knowledge of the affected code areas — not by job title, but by knowledge graph contribution depth. "Section 3.2 describes changes to the payment settlement flow. These 2 engineers are the only people with deep context here. Both need to review before this goes to sprint planning." | No tool connects PRD sections to the specific humans with the institutional knowledge needed to validate them. This information exists in the knowledge graph; nobody has surfaced it at the right moment. |
+| 7.5 | **Incident History Surfacing** — For any feature touching specific services, automatically surfaces the incident history of those services: frequency, severity, root causes, and which past PRD requirements contributed to those incidents. "The last 3 times a feature touched the notification service, 2 caused P1 incidents within 14 days. Here are the specific edge cases that caused them." | No tool connects PRD authoring to the production incident history of the services being modified. This is the most important risk signal a PM could have — and it's invisible today. |
+
+### Phase 2 — Validated PRD → Intelligent Ticket Decomposition
+
+| # | Feature | Why It's Different / Unsolved |
+|---|---------|-------------------------------|
+| 7.6 | **AI-Powered PRD → Ticket Decomposer** — Once a PRD is approved, Nudgeio automatically decomposes it into actionable Jira tickets: identifies the discrete units of work, infers dependencies between them, assigns each ticket to the team with the highest relevant knowledge depth, flags ambiguities that need PM clarification before the ticket can be estimated. The output is a dependency-ordered, ownership-assigned, clarification-flagged ticket tree — not a flat backlog. | Jira and Linear require manual ticket creation from PRDs. No tool uses the knowledge graph to decompose requirements into work units and assign them based on knowledge depth rather than team membership. |
+| 7.7 | **Requirement Coverage Verification** — As tickets are created and linked to the PRD, tracks which requirements are covered, which are partially covered (an incomplete implementation), and which have no tickets at all. Before sprint planning: "Requirements 4.2 and 5.1 have no corresponding tickets. Either they were missed or they were consciously deferred — which is it?" | Jira has epic/ticket hierarchy. No tool verifies requirement coverage against the originating PRD and distinguishes "not yet ticketed" from "consciously deferred." |
+| 7.8 | **Cross-PRD Dependency Detector** — When tickets from multiple PRDs are being sprint-planned simultaneously, surfaces conflicts: two PRDs modifying the same service, a shared dependency that both teams assumed was owned by the other, a team being over-assigned across competing priorities. "PRD-41 and PRD-44 both require changes to the auth service. The only engineer who knows auth deeply is assigned to both sprints with no capacity buffer." | No tool detects cross-PRD resource and dependency conflicts at sprint planning time. This is discovered in the sprint retrospective — too late. |
+
+### Phase 3 — In-Flight Requirement Traceability
+
+| # | Feature | Why It's Different / Unsolved |
+|---|---------|-------------------------------|
+| 7.9 | **Live PRD → Code Traceability** — While the feature is being built, maintains a live map of which PRs and commits are implementing which requirements. A PM can open the PRD and see: requirement 3.1 is 80% implemented (3 of 4 related PRs merged), requirement 4.2 has not started, requirement 5.1 was split into 2 PRs and both are in review. Real-time, requirement-level delivery visibility. | Allstacks and LinearB track epic/ticket progress. No tool shows requirement-level (not ticket-level) implementation progress with PR-level traceability back to the original PRD language. |
+| 7.10 | **Scope Drift Alert** — Detects when the implementation is diverging from the PRD: PRs touching modules not mentioned in the requirement, tickets added post-kickoff that weren't in the original decomposition, spec amendments that contradict previously approved decisions. Alerts both the PM and EM before scope drift compounds into a missed deadline or an unreviewed feature change. | No tool connects the original PRD language to the actual code changes being merged, and alerts when they diverge. Scope drift is discovered at sprint review — after the cost is already sunk. |
+
+### Phase 4 — Post-Delivery Outcome Attribution
+
+| # | Feature | Why It's Different / Unsolved |
+|---|---------|-------------------------------|
+| 7.11 | **"Did We Build What We Intended?" Post-Ship Audit** — After a feature ships: compares what the PRD required with what was actually implemented, surfaces any requirements that were silently dropped, simplified, or reinterpreted during implementation, and generates a deviation report that the PM and EM can jointly review. "Requirement 4.2 (multi-currency support) was narrowed to USD-only in PR #4821. This was not documented in the PRD or communicated to Product. The customer demo issue last week traces here." | No tool audits the fidelity of implementation against the original requirement after shipping. PRDs are forgotten the moment the sprint ends. |
+| 7.12 | **Incident → Requirement Attribution** — When a production incident occurs on a recently shipped feature, Nudgeio traces back: which PRD originated this code, which specific requirement created the affected logic, whether that requirement contained the ambiguity that caused the failure, and whether the PM who wrote the requirement was aware of the edge case. "This P1 incident traces to a race condition in the settlement flow. The requirement in PRD-38, section 3.4 did not specify behavior under concurrent requests. This was noted in PR review but not escalated." | No tool closes the loop from production incident to the originating product requirement. Incidents are investigated in isolation. The requirement that created the condition is never surfaced to Product. |
+| 7.13 | **Feature Outcome Intelligence** — After a feature has been live for 30/60/90 days: surfaces its production health (incident rate, error rate, deployment frequency), adoption metrics (if connected to product analytics), and user impact. The PM who wrote the PRD gets a "What happened to your feature?" brief — connecting their product decisions to their production consequences for the first time. | No tool connects the PM who authored a requirement to the production outcomes of that requirement. The feedback loop from "what we designed" to "what happened in production" is completely broken for product managers. |
+| 7.14 | **PRD Learning Loop** — The org's history of PRDs, their implementation quality, their incident attribution, and their feature outcomes becomes **institutional product memory**. When a PM starts the next PRD: "Requirements like section 3.4 in your PRD — vague concurrency semantics on financial flows — have caused P1 incidents in 3 of the last 5 features that used this pattern. Here is how the last team resolved this ambiguity." | This is the compounding flywheel. Every PRD written in Nudgeio makes the next PRD smarter. No competitor builds institutional product memory that improves future PRD quality. The org stops repeating the same $200k mistakes. |
+
+---
+
+## Feature Tiers for GTM Phasing
+
+| Phase | GTM Priority | Features |
+|-------|-------------|----------|
+| **Launch / Hero** (own the conversation) | The claims no competitor can make | 1.1, 1.2, 1.3, 2.1–2.5, 3.1, 4.1, 4.2 |
+| **Q1 Post-Launch** (expand the category) | Evidence of depth + real differentiation | 3.2–3.6, 4.3–4.7, 5.1, 5.2, 6.1, 6.2 |
+| **Enterprise Expansion** (ACV scaling) | Large enterprise hooks + compliance | 5.3–5.8, 6.3–6.9, 2.6–2.9 |
+| **Long-Horizon** (category creation) | Novel and technically ambitious | AI Knowledge Ownership, Portfolio Intelligence, Architecture Review AI, EKG as Training Data |
+
+---

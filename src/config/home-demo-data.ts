@@ -1,5 +1,5 @@
 /**
- * Phase 1 — static homepage demo bundle. Aggregates `mock-data` + dashboard + graph layout.
+ * Phase 1 - static homepage demo bundle. Aggregates `mock-data` + dashboard + graph layout.
  * Loaders (`getHomeDemoData`) return this shape; components receive it via props, not imports.
  */
 import {
@@ -17,18 +17,18 @@ import type {
   HomeDemoData,
 } from "@/lib/marketing/types";
 
-/** GTM context-graph SVG layout — coordinates are viewBox-specific, keep with mock bundle. */
+/** GTM context-graph SVG layout - coordinates are viewBox-specific, keep with mock bundle. */
 export const mockContextGraphLayout: ContextGraphLayout = {
   nodes: [
-    { id: "org", label: "Organization", x: 24, y: 112, tone: "violet" },
-    { id: "team", label: "Team", x: 152, y: 48, tone: "indigo" },
-    { id: "person", label: "Person", x: 152, y: 176, tone: "indigo" },
+    { id: "org", label: "Organization", x: 24, y: 112, tone: "slate" },
+    { id: "team", label: "Team", x: 152, y: 48, tone: "teal" },
+    { id: "person", label: "Person", x: 152, y: 176, tone: "teal" },
     { id: "project", label: "Project", x: 280, y: 48, tone: "blue" },
     { id: "sprint", label: "Sprint", x: 408, y: 48, tone: "blue" },
     { id: "work", label: "Work item", x: 536, y: 48, tone: "amber" },
     { id: "pr", label: "Pull request", x: 536, y: 152, tone: "teal" },
     { id: "review", label: "Review", x: 408, y: 208, tone: "teal" },
-    { id: "build", label: "Build", x: 664, y: 152, tone: "violet" },
+    { id: "build", label: "Build", x: 664, y: 152, tone: "slate" },
     { id: "deploy", label: "Deployment", x: 792, y: 152, tone: "coral" },
     { id: "service", label: "Service", x: 792, y: 48, tone: "coral" },
     { id: "incident", label: "Incident", x: 792, y: 208, tone: "coral" },
@@ -101,7 +101,7 @@ export const mockCommandDashboard: CommandDashboardData = {
   ],
 };
 
-/** GTM example bundle — `isExample: true` keeps honest labeling in UI. */
+/** GTM example bundle - `isExample: true` keeps honest labeling in UI. */
 export function buildMockHomeDemoData(): HomeDemoData {
   return {
     company: { name: mockCompany.name, team: mockCompany.team },

@@ -9,15 +9,15 @@ const pillars = [
   { title: "Knowledge Graph", accent: "teal" as const },
   { title: "Diagnosis", accent: "coral" as const },
   { title: "Project health", accent: "amber" as const },
-  { title: "AI code quality", accent: "violet" as const },
+  { title: "AI code quality", accent: "slate" as const },
   { title: "Due diligence", accent: "blue" as const },
-  { title: "Incident learning", accent: "indigo" as const },
+  { title: "Incident learning", accent: "teal" as const },
 ] as const;
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Research",
   description:
-    "Antarang research pillars: Knowledge Graph, diagnosis, project health, and related topics. Not a content farm.",
+    "Nudgeio research pillars: Knowledge Graph, diagnosis, project health, and related topics. Not a content farm.",
   path: ROUTES.research,
 });
 
@@ -29,13 +29,13 @@ export default function Page(): React.ReactElement {
       description="People-first notes will live here when they are original. Pillars: Knowledge Graph, diagnosis, project health, AI code quality, due diligence, incident learning, product↔engineering, compliance."
     >
       <div className="mb-8 grid gap-3 sm:grid-cols-3">
-        <ColorNavCard href={ROUTES.blog} title="Blog" description="Dated notes" accent="indigo" />
+        <ColorNavCard href={ROUTES.blog} title="Blog" description="Dated notes" accent="teal" />
         <ColorNavCard href={ROUTES.learn} title="Learn" description="Explainers" accent="teal" />
         <ColorNavCard
           href={ROUTES.compare}
           title="Compare"
           description="Category gaps"
-          accent="violet"
+          accent="slate"
         />
       </div>
       <h2 className="text-base font-semibold text-foreground">Research pillars</h2>

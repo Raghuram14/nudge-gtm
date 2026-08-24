@@ -6,10 +6,10 @@ test("homepage hero copy is in HTML without client JS", async ({ browser }) => {
   await page.goto("/");
   await expect(page.locator("h1")).toContainText("Engineering Intelligence");
   await expect(page.locator("body")).toContainText(
-    "Antarang connects the people, projects, work items, code, reviews, builds, deployments, services, incidents, and AI activity",
+    "Nudgeio connects the people, projects, work items, code, reviews, builds, deployments, services, incidents, and AI activity",
   );
   const title = await page.title();
-  expect(title.toLowerCase()).toContain("antarang");
+  expect(title.toLowerCase()).toContain("nudgeio");
   await context.close();
 });
 
@@ -25,5 +25,5 @@ test("canonical and robots allow public pages", async ({ request }) => {
   const xml = await sitemap.text();
   expect(xml).toContain("<urlset");
   expect(xml).toContain("/platform/context-graph");
-  expect(xml).not.toContain("/compare/antarang-vs-hatica");
+  expect(xml).not.toContain("/compare/nudgeio-vs-hatica");
 });

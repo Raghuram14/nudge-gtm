@@ -12,14 +12,12 @@ export function SectionHeading({
   id,
 }: SectionHeadingProps): React.ReactElement {
   return (
-    <div className="mb-10 max-w-2xl">
-      {eyebrow ? (
-        <p className="mb-2 text-sm font-medium uppercase tracking-wide text-accent">{eyebrow}</p>
-      ) : null}
-      <h2 id={id} className="text-3xl font-semibold tracking-tight md:text-4xl">
+    <div className="mb-8 max-w-2xl">
+      {eyebrow ? <p className="type-label mb-2 text-accent">{eyebrow}</p> : null}
+      <h2 id={id} className="type-section-title text-foreground">
         {title}
       </h2>
-      {description ? <p className="mt-3 text-muted">{description}</p> : null}
+      {description ? <p className="type-body mt-3">{description}</p> : null}
     </div>
   );
 }

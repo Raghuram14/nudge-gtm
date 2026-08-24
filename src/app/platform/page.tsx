@@ -38,7 +38,7 @@ const platformLinks = [
 export const metadata: Metadata = buildPageMetadata({
   title: "Platform",
   description:
-    "Antarang platform: connect engineering evidence, build context and a knowledge graph, reason with evidence-first AI, and act on understanding.",
+    "Nudgeio platform: connect engineering evidence, build context and a knowledge graph, reason with evidence-first AI, and act on understanding.",
   path: ROUTES.platform,
 });
 
@@ -47,7 +47,7 @@ export default function Page(): React.ReactElement {
     <SimplePage
       crumbs={[{ href: ROUTES.platform, label: "Platform" }]}
       title="Platform"
-      description="An engineering intelligence platform that connects evidence and context across systems — from artifacts to explainable answers."
+      description="An engineering intelligence layer that connects evidence and context across systems - from artifacts to explainable answers."
     >
       <SystemDiagram />
       <ul className="mt-8 grid items-stretch gap-3 sm:grid-cols-2">

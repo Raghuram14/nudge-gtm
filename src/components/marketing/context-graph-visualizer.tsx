@@ -1,4 +1,4 @@
-/** Phase 1 — presentational; graph layout arrives via props from `getHomeDemoData()`. */
+/** Phase 1 - presentational; graph layout arrives via props from `getHomeDemoData()`. */
 "use client";
 
 import { useMemo, useState } from "react";
@@ -16,41 +16,35 @@ const toneColors: Record<
   ContextGraphNodeTone,
   { fill: string; stroke: string; text: string; soft: string }
 > = {
-  indigo: {
-    fill: "color-mix(in oklab, var(--accent) 18%, white)",
-    stroke: "var(--accent)",
-    text: "var(--accent)",
-    soft: "color-mix(in oklab, var(--accent) 35%, transparent)",
-  },
   teal: {
-    fill: "color-mix(in oklab, var(--observed) 16%, white)",
+    fill: "color-mix(in oklab, var(--observed) 16%, var(--surface))",
     stroke: "var(--observed)",
     text: "var(--observed)",
     soft: "color-mix(in oklab, var(--observed) 40%, transparent)",
   },
   amber: {
-    fill: "color-mix(in oklab, var(--inferred) 18%, white)",
+    fill: "color-mix(in oklab, var(--inferred) 18%, var(--surface))",
     stroke: "var(--inferred)",
-    text: "#b8860b",
+    text: "var(--inferred)",
     soft: "color-mix(in oklab, var(--inferred) 45%, transparent)",
   },
   blue: {
-    fill: "color-mix(in oklab, var(--reasoning) 16%, white)",
+    fill: "color-mix(in oklab, var(--reasoning) 16%, var(--surface))",
     stroke: "var(--reasoning)",
     text: "var(--reasoning)",
     soft: "color-mix(in oklab, var(--reasoning) 40%, transparent)",
   },
   coral: {
-    fill: "color-mix(in oklab, var(--risk-high) 14%, white)",
+    fill: "color-mix(in oklab, var(--risk-high) 14%, var(--surface))",
     stroke: "var(--risk-high)",
     text: "var(--risk-high)",
     soft: "color-mix(in oklab, var(--risk-high) 40%, transparent)",
   },
-  violet: {
-    fill: "#f3e8ff",
-    stroke: "#8b5cf6",
-    text: "#7c3aed",
-    soft: "color-mix(in oklab, #8b5cf6 40%, transparent)",
+  slate: {
+    fill: "color-mix(in oklab, var(--knowledge) 16%, var(--surface))",
+    stroke: "var(--knowledge)",
+    text: "var(--knowledge)",
+    soft: "color-mix(in oklab, var(--knowledge) 40%, transparent)",
   },
 };
 
@@ -194,9 +188,9 @@ export function ContextGraphVisualizer({
       <div className="mt-4 flex flex-wrap items-center justify-center gap-3 text-xs">
         {(
           [
-            ["People", "indigo"],
+            ["People", "teal"],
             ["Work", "blue"],
-            ["Code", "teal"],
+            ["Code", "slate"],
             ["Delivery", "coral"],
             ["Signals", "amber"],
           ] as const

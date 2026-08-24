@@ -7,39 +7,12 @@ export type NavItem = {
   children?: ReadonlyArray<{ href: string; label: string }>;
 };
 
+/** Slim primary nav - only surfaces visitors need. SEO landings stay linkable, not in chrome. */
 export const primaryNavigation: ReadonlyArray<NavItem> = [
-  {
-    href: ROUTES.platform,
-    label: "Platform",
-    children: [
-      { href: ROUTES.contextGraph, label: "Context Graph" },
-      { href: ROUTES.engineeringIntelligence, label: "Engineering Intelligence" },
-      { href: ROUTES.projectHealth, label: "Project health" },
-      { href: ROUTES.evidenceFirstAi, label: "Evidence-first AI" },
-      { href: ROUTES.mcp, label: "MCP / agents" },
-    ],
-  },
-  { href: ROUTES.useCases, label: "Use Cases" },
-  { href: ROUTES.solutions, label: "Solutions" },
+  { href: ROUTES.platform, label: "Product" },
   { href: ROUTES.integrations, label: "Integrations" },
-  {
-    href: ROUTES.blog,
-    label: "Resources",
-    children: [
-      { href: ROUTES.blog, label: "Blog" },
-      { href: ROUTES.learn, label: "Learn" },
-      { href: ROUTES.research, label: "Research" },
-      { href: ROUTES.compare, label: "Compare" },
-    ],
-  },
-  {
-    href: ROUTES.trust,
-    label: "Company",
-    children: [
-      { href: ROUTES.trust, label: "Trust" },
-      { href: ROUTES.contact, label: "Contact" },
-    ],
-  },
+  { href: ROUTES.trust, label: "Trust" },
+  { href: ROUTES.contact, label: "Contact" },
 ];
 
 export const headerCta = {
@@ -49,30 +22,14 @@ export const headerCta = {
 
 export const footerNavigation = {
   product: [
+    { href: ROUTES.platform, label: "Product" },
     { href: ROUTES.contextGraph, label: "Context Graph" },
-    { href: ROUTES.engineeringIntelligence, label: "Engineering Intelligence" },
-    { href: ROUTES.projectHealth, label: "Project health" },
-    { href: ROUTES.mcp, label: "MCP / agents" },
-  ],
-  useCases: [
-    { href: ROUTES.useCases, label: "Use cases" },
-    { href: ROUTES.solutions, label: "Solutions" },
+    { href: ROUTES.evidenceFirstAi, label: "Evidence-first AI" },
     { href: ROUTES.integrations, label: "Integrations" },
   ],
-  resources: [
-    { href: ROUTES.blog, label: "Blog" },
-    { href: ROUTES.learn, label: "Learn" },
-    { href: ROUTES.research, label: "Research" },
-    { href: ROUTES.compare, label: "Compare" },
-  ],
   company: [
-    { href: ROUTES.contact, label: "Contact" },
     { href: ROUTES.trust, label: "Trust" },
-  ],
-  trust: [
-    { href: ROUTES.trustSecurity, label: "Security" },
-    { href: ROUTES.trustPrivacy, label: "Privacy" },
-    { href: ROUTES.trustData, label: "Data" },
     { href: ROUTES.trustNoSurveillance, label: "No surveillance" },
+    { href: ROUTES.contact, label: "Contact" },
   ],
 } as const;

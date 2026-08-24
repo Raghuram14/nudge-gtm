@@ -14,7 +14,7 @@ export function IntegrationCard({
   integration: IntegrationRecord;
 }): React.ReactElement {
   const coming = integration.status === integrationStatus.comingSoon;
-  const accent = categoryAccents[integration.category] ?? "indigo";
+  const accent = categoryAccents[integration.category] ?? "teal";
   const colors = accentTones[accent];
 
   return (

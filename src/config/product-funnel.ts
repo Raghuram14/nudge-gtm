@@ -5,23 +5,27 @@ export type FunnelStage = {
 
 export const productFunnelStages: ReadonlyArray<FunnelStage> = [
   {
-    title: "Evidence",
-    text: "What happened — drawn from the systems your teams already use.",
+    title: "Signal",
+    text: "Something changed - a metric, a risk, a pattern that deserves attention.",
   },
   {
     title: "Context",
-    text: "Scattered signals become a story you can follow.",
+    text: "Scattered events become a connected story across systems.",
   },
   {
-    title: "Graph",
-    text: "See how work, code, and decisions connect.",
+    title: "Understanding",
+    text: "Competing hypotheses ranked with confidence and evidence.",
   },
   {
-    title: "Reasoning",
-    text: "Ask why — with answers you can trace back to source.",
+    title: "Nudge",
+    text: "A concrete recommendation: what matters and what to do.",
   },
   {
     title: "Action",
-    text: "Move from understanding to what deserves attention next.",
+    text: "Intervention taken in the tools your teams already use.",
+  },
+  {
+    title: "Outcome",
+    text: "Measure whether the diagnosis held - and learn for next time.",
   },
 ];

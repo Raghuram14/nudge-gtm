@@ -11,7 +11,7 @@ const integration = getIntegrationBySlug("jira");
 export const metadata: Metadata = buildPageMetadata({
   title: "Jira integration",
   description:
-    "How Antarang intends to use Jira as engineering context: work items and sprints as canonical entities — not a Jira dashboard.",
+    "How Nudgeio intends to use Jira as engineering context: work items and sprints as canonical entities - not a Jira dashboard.",
   path: ROUTES.integrationsJira,
 });
 

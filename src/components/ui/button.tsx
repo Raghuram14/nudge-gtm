@@ -4,16 +4,17 @@ import { cn } from "@/lib/cn";
 
 const variants = {
   primary:
-    "rounded-full bg-accent text-accent-fg hover:bg-focus disabled:opacity-50",
+    "rounded-md bg-accent text-accent-fg hover:bg-accent-hover active:scale-[0.98] disabled:pointer-events-none disabled:opacity-40",
   secondary:
-    "rounded-full border border-border bg-surface-raised text-foreground hover:border-accent hover:text-accent disabled:opacity-50",
-  ghost: "rounded-full text-foreground hover:bg-surface-raised hover:text-accent disabled:opacity-50",
+    "rounded-md border border-border bg-surface-raised text-foreground hover:border-accent/50 hover:bg-surface-hover active:scale-[0.98] disabled:pointer-events-none disabled:opacity-40",
+  ghost:
+    "rounded-md text-foreground hover:bg-surface-hover hover:text-accent active:scale-[0.98] disabled:pointer-events-none disabled:opacity-40",
 } as const;
 
 const sizes = {
-  md: "min-h-11 px-4 py-2 text-sm",
-  sm: "min-h-11 px-3 py-2 text-sm",
-  lg: "min-h-12 px-6 py-3 text-base",
+  md: "min-h-10 px-4 py-2 text-sm",
+  sm: "min-h-9 px-3 py-1.5 text-sm",
+  lg: "min-h-11 px-5 py-2.5 text-base",
 } as const;
 
 type ButtonVariant = keyof typeof variants;
@@ -24,6 +25,7 @@ type Common = {
   size?: ButtonSize;
   className?: string;
   children: React.ReactNode;
+  loading?: boolean;
 };
 
 type ButtonAsButton = Common &
@@ -43,35 +45,55 @@ export function Button({
   size = "md",
   className,
   children,
+  loading,
   ...rest
 }: ButtonAsButton | ButtonAsLink): React.ReactElement {
   const classes = cn(
-    "inline-flex items-center justify-center gap-2 font-medium transition-transform transition-colors hover:-translate-y-0.5",
+    "inline-flex items-center justify-center gap-2 font-medium transition-[transform,background-color,border-color,color] duration-[var(--motion-micro)] ease-[var(--ease-out)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
     variants[variant],
     sizes[size],
+    loading && "pointer-events-none opacity-70",
     className,
+  );
+
+  const content = loading ? (
+    <>
+      <span
+        className="size-3.5 animate-pulse rounded-full border-2 border-current border-t-transparent"
+        aria-hidden
+      />
+      <span>{children}</span>
+    </>
+  ) : (
+    children
   );
 
   if ("href" in rest && rest.href) {
     const { href, disabled, onClick } = rest;
     if (disabled) {
       return (
-        <span className={cn(classes, "pointer-events-none opacity-50")} aria-disabled="true">
-          {children}
+        <span className={cn(classes, "pointer-events-none opacity-40")} aria-disabled="true">
+          {content}
         </span>
       );
     }
     return (
       <Link href={href} className={classes} onClick={onClick}>
-        {children}
+        {content}
       </Link>
     );
   }
 
   const buttonRest = rest as ButtonAsButton;
   return (
-    <button className={classes} type={buttonRest.type ?? "button"} {...buttonRest}>
-      {children}
+    <button
+      className={classes}
+      type={buttonRest.type ?? "button"}
+      aria-busy={loading || undefined}
+      disabled={buttonRest.disabled || loading}
+      {...buttonRest}
+    >
+      {content}
     </button>
   );
 }

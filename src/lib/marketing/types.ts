@@ -1,4 +1,4 @@
-/** Shared shapes for GTM product mockups — validated in `src/lib/api/schemas.ts`. */
+/** Shared shapes for GTM product mockups - validated in `src/lib/api/schemas.ts`. */
 
 export type EvidenceStrength = "High" | "Medium" | "Low";
 
@@ -82,12 +82,11 @@ export type CommandDashboardData = {
 };
 
 export type ContextGraphNodeTone =
-  | "indigo"
   | "teal"
   | "amber"
   | "blue"
   | "coral"
-  | "violet";
+  | "slate";
 
 /** Spatial layout for the interactive context-graph SVG (Phase 1 prop shape). */
 export type ContextGraphLayoutNode = {

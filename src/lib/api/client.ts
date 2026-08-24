@@ -1,4 +1,4 @@
-/** Phase 2 — shared HTTP client: fetch, parse, and surface API errors for demo loaders. */
+/** Phase 2 - shared HTTP client: fetch, parse, and surface API errors for demo loaders. */
 import type { z } from "zod";
 
 import { logger } from "@/lib/logger";
@@ -20,7 +20,7 @@ type ApiFetchOptions<T> = {
   init?: RequestInit;
 };
 
-/** Shared fetch + Zod parse for Antarang demo/product API responses. */
+/** Shared fetch + Zod parse for Nudgeio demo/product API responses. */
 export async function apiFetch<T>({
   baseUrl,
   path,

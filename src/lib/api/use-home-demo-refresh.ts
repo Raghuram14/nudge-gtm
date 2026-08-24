@@ -1,5 +1,5 @@
 /**
- * Phase 4 — client-side demo refresh without adding TanStack Query yet.
+ * Phase 4 - client-side demo refresh without adding TanStack Query yet.
  * Upgrade: `useQuery({ queryKey: apiQueryKeys.homeDemo, queryFn: fetchHomeDemoClient })`.
  */
 "use client";

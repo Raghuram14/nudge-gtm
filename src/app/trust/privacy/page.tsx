@@ -7,7 +7,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Privacy",
   description:
-    "Antarang privacy intent: minimize personal data on this marketing site, and do not use analytics for individual surveillance.",
+    "Nudgeio privacy intent: minimize personal data on this marketing site, and do not use analytics for individual surveillance.",
   path: ROUTES.trustPrivacy,
 });
 
@@ -24,7 +24,7 @@ export default function Page(): React.ReactElement {
       <p>
         We do not log form bodies or email addresses in the browser console. Analytics are
         abstracted and must not identify individuals. A full legal privacy policy will replace this
-        intent page when counsel provides it — we will not invent one.
+        intent page when counsel provides it - we will not invent one.
       </p>
     </SimplePage>
   );

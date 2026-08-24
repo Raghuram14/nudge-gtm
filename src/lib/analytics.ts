@@ -14,7 +14,7 @@ export function track(event: AnalyticsEvent, props?: AnalyticsProps): void {
     return;
   }
   window.dispatchEvent(
-    new CustomEvent("antarang:analytics", {
+    new CustomEvent("nudgeio:analytics", {
       detail: { event, props: props ?? {}, ts: Date.now() },
     }),
   );

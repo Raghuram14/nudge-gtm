@@ -20,7 +20,7 @@ export function IntegrationCategoryList({
         <nav aria-label="Integration categories">
           <ul className="flex flex-wrap gap-2">
             {groups.map(({ category }) => {
-              const accent = categoryAccents[category.id] ?? "indigo";
+              const accent = categoryAccents[category.id] ?? "teal";
               const colors = accentTones[accent];
               return (
                 <li key={category.id}>
@@ -41,7 +41,7 @@ export function IntegrationCategoryList({
         </nav>
       ) : null}
       {groups.map(({ category, items }) => {
-        const accent = categoryAccents[category.id] ?? "indigo";
+        const accent = categoryAccents[category.id] ?? "teal";
         const colors = accentTones[accent];
         return (
           <section key={category.id} id={category.id} className="scroll-mt-24">

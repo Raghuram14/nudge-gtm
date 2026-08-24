@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { AskAntarangPanel } from "@/components/marketing/ask-antarang-panel";
+import { AskNudgeioPanel } from "@/components/marketing/ask-nudgeio-panel";
 import { MachinePageContract } from "@/components/marketing/machine-page-contract";
 import { ProjectHealthCard } from "@/components/marketing/project-health-card";
 import { SimplePage } from "@/components/marketing/simple-page";
@@ -23,10 +23,10 @@ export default function Page(): React.ReactElement {
       ]}
       eyebrow="Platform"
       title="Project and sprint health"
-      description="Is this project or sprint healthy, and why? Delivery risk should be measured with blocked work, dependencies, and review delay — not commits or hours online."
+      description="Is this project or sprint healthy, and why? Delivery risk should be measured with blocked work, dependencies, and review delay - not commits or hours online."
       related={[
         { href: ROUTES.engineeringIntelligence, label: "Engineering Intelligence" },
-        { href: ROUTES.evidenceFirstAi, label: "Ask Antarang" },
+        { href: ROUTES.evidenceFirstAi, label: "Ask Nudgeio" },
         { href: ROUTES.contextGraph, label: "Context Graph" },
       ]}
     >
@@ -36,7 +36,7 @@ export default function Page(): React.ReactElement {
         dependency delay. Correlation is not causation. Example panels below are illustrative.
       </p>
       <ProjectHealthCard />
-      <AskAntarangPanel />
+      <AskNudgeioPanel />
       <MachinePageContract
         what="Project and sprint health investigations."
         who="Engineering managers and directors."

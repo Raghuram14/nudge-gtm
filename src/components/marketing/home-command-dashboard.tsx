@@ -1,4 +1,4 @@
-/** Phase 1 — KPI mock dashboard; SVG sparkline data lives in `dashboard` prop. */
+/** Phase 1 - KPI mock dashboard; SVG sparkline data lives in `dashboard` prop. */
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import type { CommandDashboardData } from "@/lib/marketing/types";

@@ -7,7 +7,7 @@ export function ColorNavCard({
   href,
   title,
   description,
-  accent = "indigo",
+  accent = "teal",
 }: {
   href: string;
   title: string;
@@ -41,7 +41,7 @@ export function ColorArticleCard({
   title,
   description,
   meta,
-  accent = "indigo",
+  accent = "teal",
 }: {
   href: string;
   title: string;

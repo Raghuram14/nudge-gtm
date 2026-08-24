@@ -10,11 +10,11 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Engineering Knowledge Graph (Context Graph)",
   description:
-    "Antarang’s Engineering Knowledge Graph — also called a Context Graph — connects people, work, code, and runtime context with provenance so leaders can see relationships, not event counts.",
+    "Nudgeio’s Engineering Knowledge Graph - also called a Context Graph - connects people, work, code, and runtime context with provenance so leaders can see relationships, not event counts.",
   path: ROUTES.contextGraph,
 });
 
-/** Phase 3 — loads graph layout via server demo loader, passes to Phase 1 visualizer. */
+/** Phase 3 - loads graph layout via server demo loader, passes to Phase 1 visualizer. */
 export default async function Page(): Promise<React.ReactElement> {
   const demo = await getHomeDemoData();
 
@@ -26,7 +26,7 @@ export default async function Page(): Promise<React.ReactElement> {
       ]}
       eyebrow="Platform"
       title="Engineering Knowledge Graph"
-      description="Visitor-friendly name: Context Graph. A canonical model of engineering context — entities, relationships, and provenance — not a pitch for a graph database."
+      description="Visitor-friendly name: Context Graph. A canonical model of engineering context - entities, relationships, and provenance - not a pitch for a graph database."
       related={[
         { href: ROUTES.engineeringIntelligence, label: "Engineering Intelligence" },
         { href: ROUTES.projectHealth, label: "Project health" },
@@ -57,7 +57,7 @@ export default async function Page(): Promise<React.ReactElement> {
         problem="Tools store events; they do not connect them."
         how="Normalize sources into canonical entities and directed relationships with provenance."
         data="GitHub and Jira first; other sources coming soon."
-        output="Traversable context for investigations and Ask Antarang."
+        output="Traversable context for investigations and Ask Nudgeio."
         availability="Design-partner direction for GitHub + Jira. Not a claimed production graph for all sources."
         differ="Not “we have Neo4j.” The product is connected context."
         learnMore="Engineering Intelligence, Project health, GitHub and Jira pages."

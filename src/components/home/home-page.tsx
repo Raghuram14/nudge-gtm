@@ -1,193 +1,139 @@
-/**
- * Homepage — Phase 3 route integration. Loads demo on the server via `getHomeDemoData()`,
- * passes typed props to Phase 1 presentational blocks (no direct mock imports here).
- */
 import Link from "next/link";
 
-import { ContextGraphVisualizer } from "@/components/marketing/context-graph-visualizer";
 import { CtaBlock } from "@/components/marketing/cta-block";
-import { EvidenceFlowHero } from "@/components/marketing/evidence-flow-hero";
 import { Faq } from "@/components/marketing/faq";
-import { FragmentationVisual } from "@/components/marketing/fragmentation-visual";
-import { HomeCommandDashboard } from "@/components/marketing/home-command-dashboard";
+import { HeroStage } from "@/components/marketing/hero-stage";
 import { HomeSection } from "@/components/marketing/home-section";
+import { HowItWorksPipeline } from "@/components/marketing/how-it-works-pipeline";
 import { IntegrationPreview } from "@/components/marketing/integration-preview";
-import { InvestigationDemo } from "@/components/marketing/investigation-demo";
+import { InvestigationExperience } from "@/components/marketing/investigation-experience";
 import { SectionHeading } from "@/components/marketing/section-heading";
-import { SystemDiagram } from "@/components/marketing/system-diagram";
+import { WhatItDoes } from "@/components/marketing/what-it-does";
 import { Button } from "@/components/ui/button";
 import { ctaConfig } from "@/config/cta";
 import { homeFaqs } from "@/config/faq";
-import { homeProblem, homeStats } from "@/config/home-content";
 import { ROUTES } from "@/config/routes";
 import { siteConfig } from "@/config/site";
 import { getHomeDemoData } from "@/lib/api/home-demo";
 
-const heroSignals = [
-  { label: "Evidence", color: "bg-observed" },
-  { label: "Context", color: "bg-accent" },
-  { label: "Why", color: "bg-inferred" },
-] as const;
-
 export async function HomePage(): Promise<React.ReactElement> {
   const demo = await getHomeDemoData();
-  const exampleLabel = demo.isExample ? "Example · " : "";
 
   return (
     <main id="main">
-      <section className="hero-grid border-b border-border">
-        <div className="mx-auto grid w-full max-w-6xl items-stretch gap-10 px-4 py-14 lg:grid-cols-2 lg:py-20">
-          <div className="flex animate-fade-up flex-col justify-center">
-            <p className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-              {siteConfig.name}
-            </p>
-
-            <div className="mt-4 inline-flex w-fit items-center gap-2 rounded-full border border-accent/30 bg-accent-muted px-3 py-1.5">
-              <span className="relative flex size-2">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-40" />
-                <span className="relative inline-flex size-2 rounded-full bg-accent" />
-              </span>
-              <span className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">
-                Engineering intelligence
-              </span>
-            </div>
-
-            <h1 className="mt-5 text-balance text-5xl font-semibold tracking-tight md:text-7xl">
-              Understand why engineering{" "}
-              <span className="shine-text italic text-accent">changes</span>.
+      <section className="hero-atmosphere border-b border-border">
+        <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 pb-16 pt-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-center lg:gap-12 lg:pb-20 lg:pt-16">
+          <div className="animate-fade-up max-w-xl">
+            <p className="type-label text-accent">{siteConfig.category}</p>
+            <h1 className="type-display mt-4 text-foreground">
+              See why engineering work stalled — and what to fix next.
             </h1>
-
-            <p className="mt-5 max-w-lg text-lg leading-relaxed text-muted">
-              {siteConfig.visitorSentence}
+            <p className="mt-5 text-lg leading-relaxed text-text-secondary">
+              Nudgeio is the intelligence layer for engineering teams. It connects GitHub and Jira
+              into an evidence chain: when cycle time spikes or a sprint slips, you get ranked
+              diagnoses you can inspect, then a concrete nudge.
             </p>
-
-            <ul className="mt-6 flex flex-wrap gap-2">
-              {heroSignals.map((signal) => (
-                <li
-                  key={signal.label}
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5 text-sm font-medium text-foreground"
-                >
-                  <span className={`size-2 rounded-full ${signal.color}`} aria-hidden />
-                  {signal.label}
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-8 flex flex-wrap gap-3">
+            <p className="mt-3 text-base leading-relaxed text-text-tertiary">
+              Not another dashboard. Not a black-box AI summary. Every claim has a receipt.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
               <Button
                 href={`${ROUTES.contact}?intent=${ctaConfig.seeInAction.intent}`}
                 size="lg"
               >
                 {ctaConfig.seeInAction.label}
               </Button>
-              <Button href={ctaConfig.exploreHowItWorks.href} variant="secondary" size="lg">
-                {ctaConfig.exploreHowItWorks.label}
+              <Button href="#what-it-does" variant="secondary" size="lg">
+                What Nudgeio does
               </Button>
             </div>
-
-            <p className="mt-5 text-sm text-muted">
-              Built for CTOs, VPs, and engineering leaders —{" "}
-              <Link href={ROUTES.engineeringIntelligence} className="text-accent hover:underline">
-                see the platform
-              </Link>
-              .
-            </p>
+            <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
+              <li>Evidence behind every insight</li>
+              <li>Facts separated from inferences</li>
+              <li>No individual surveillance</li>
+            </ul>
           </div>
-          <EvidenceFlowHero
-            company={demo.company}
-            evidence={demo.evidence}
-            investigation={demo.investigation}
-            isExample={demo.isExample}
-          />
+
+          <div className="animate-fade-up [animation-delay:120ms]">
+            <HeroStage isExample={demo.isExample} />
+          </div>
         </div>
       </section>
 
-      <section className="gtm-glass border-b border-border">
-        <dl className="mx-auto grid w-full max-w-6xl items-stretch gap-4 px-4 py-8 sm:grid-cols-2 lg:grid-cols-4">
-          {homeStats.map((stat, index) => {
-            const tones = [
-              "text-accent",
-              "text-risk-high",
-              "text-observed",
-              "text-inferred",
-            ] as const;
-            return (
-              <div
-                key={stat.label}
-                className="lift breathe-border flex min-h-24 flex-col justify-center rounded-xl border border-border bg-surface px-4 py-4"
-              >
-                <dt className="text-xs uppercase tracking-wide text-muted">{stat.label}</dt>
-                <dd
-                  className={`mt-1 text-4xl font-semibold tabular-nums ${tones[index] ?? "text-accent"}`}
-                >
-                  {stat.value}
-                </dd>
-              </div>
-            );
-          })}
-        </dl>
-      </section>
-
       <div className="mx-auto w-full max-w-6xl px-4">
-        <HomeSection className="py-14">
-          <SectionHeading title={homeProblem.title} />
-          <FragmentationVisual sources={demo.fragmentationSources} evidence={demo.evidence} />
+        <HomeSection id="what-it-does" className="py-16 md:py-20">
+          <SectionHeading
+            title="What Nudgeio does"
+            description="Three steps. Same systems you already use. Understanding you can defend in a meeting."
+          />
+          <WhatItDoes />
         </HomeSection>
 
-        <HomeSection className="py-14">
+        <HomeSection id="how-it-works" className="py-16 md:py-20">
           <SectionHeading
-            eyebrow="Live view"
-            title="See the signal before the story."
-            description={`${exampleLabel}${demo.company.name} · ${demo.isExample ? "not customer data" : "connected workspace"}`}
+            title="How a diagnosis is built"
+            description="Signal → evidence → competing hypotheses → nudge. You can pause on any step."
           />
-          <HomeCommandDashboard
-            company={demo.company}
-            dashboard={demo.dashboard}
+          <HowItWorksPipeline />
+        </HomeSection>
+
+        <HomeSection className="py-16 md:py-20">
+          <SectionHeading
+            title="Try an investigation"
+            description="Click a hypothesis, open evidence, or apply a simulated nudge when you want — nothing auto-plays."
+          />
+          <InvestigationExperience
+            companyName={demo.company.name}
             isExample={demo.isExample}
           />
         </HomeSection>
 
-        <HomeSection id="how-it-works" className="py-14">
+        <HomeSection className="py-16 md:py-20">
           <SectionHeading
-            eyebrow="How it works"
-            title="Evidence → Context → Graph → Reasoning → Action"
+            title="Works where your team already works"
+            description="GitHub and Jira first. Other sources only appear with honest status."
           />
-          <SystemDiagram />
-        </HomeSection>
-
-        <HomeSection className="py-14">
-          <SectionHeading eyebrow="Ask why" title="Click through a +31% cycle time spike." />
-          <InvestigationDemo
-            company={demo.company}
-            investigation={demo.investigation}
-            evidenceItems={demo.evidenceItems}
-            graphNodes={demo.graphNodes}
-            isExample={demo.isExample}
-          />
-        </HomeSection>
-
-        <HomeSection className="py-14">
-          <SectionHeading eyebrow="Context graph" title="847 events. One map." />
-          <ContextGraphVisualizer layout={demo.contextGraph} />
+          <IntegrationPreview />
           <p className="mt-4">
-            <Link href={ROUTES.contextGraph} className="text-sm text-accent hover:underline">
-              Explore the graph →
+            <Link href={ROUTES.integrations} className="text-sm text-accent hover:underline">
+              See integrations
             </Link>
           </p>
         </HomeSection>
 
-        <HomeSection className="py-14">
-          <SectionHeading eyebrow="Integrations" title="GitHub + Jira first." />
-          <IntegrationPreview />
+        <HomeSection className="py-16 md:py-20">
+          <SectionHeading
+            title="Trust is part of the product"
+            description="Sensitive engineering context needs provenance, privacy, and clear boundaries — not surveillance."
+          />
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { href: ROUTES.trustSecurity, label: "Security" },
+              { href: ROUTES.trustPrivacy, label: "Privacy" },
+              { href: ROUTES.trustData, label: "Data" },
+              { href: ROUTES.trustNoSurveillance, label: "No surveillance" },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-lg border border-border bg-surface px-4 py-4 text-sm font-medium text-foreground transition-colors hover:border-accent/40 hover:text-accent"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
         </HomeSection>
 
-        <HomeSection id="faq" className="py-14">
-          <SectionHeading eyebrow="FAQ" title="Quick answers." />
+        <HomeSection id="faq" className="py-16 md:py-20">
+          <SectionHeading title="Quick answers" />
           <Faq items={homeFaqs} />
         </HomeSection>
 
-        <HomeSection className="py-14">
-          <CtaBlock />
+        <HomeSection className="py-16 md:py-20">
+          <CtaBlock
+            title="Release with understanding."
+            description="See Nudgeio turn fragmented signals into evidence-backed diagnosis — then decide what to do next."
+          />
         </HomeSection>
       </div>
     </main>

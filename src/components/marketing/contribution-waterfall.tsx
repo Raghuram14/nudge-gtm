@@ -1,4 +1,4 @@
-/** Phase 1 — contributor waterfall table; investigation slice via props. */
+/** Phase 1 - contributor waterfall table; investigation slice via props. */
 import { cn } from "@/lib/cn";
 import type { Investigation } from "@/lib/marketing/types";
 

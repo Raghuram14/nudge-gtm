@@ -24,7 +24,7 @@ export function EvidencePanel(): React.ReactElement {
         </li>
         <li>
           <strong className="text-foreground">Context:</strong> concentrated reviewer load
-          — not an individual ranking.
+          - not an individual ranking.
         </li>
       </ul>
     </Card>

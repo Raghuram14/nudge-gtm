@@ -7,7 +7,7 @@ export function SolutionCard({
   problem,
   belief,
   cta,
-  accent = "indigo",
+  accent = "teal",
 }: {
   title: string;
   problem: string;

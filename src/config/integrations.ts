@@ -1,5 +1,5 @@
 /**
- * Integration catalog — content config, not runtime connectors.
+ * Integration catalog - content config, not runtime connectors.
  * Add integrations here; UI picks up via IntegrationHub, IntegrationCard, etc.
  */
 import { ROUTES } from "@/config/routes";
@@ -71,7 +71,7 @@ export const integrationCategories: ReadonlyArray<IntegrationCategory> = [
   {
     id: "telemetry",
     label: "Telemetry",
-    description: "Runtime signals as context for services — not another observability product.",
+    description: "Runtime signals as context for services - not another observability product.",
   },
   {
     id: "ai-tools",
@@ -101,7 +101,7 @@ export const integrations: ReadonlyArray<IntegrationRecord> = [
     status: integrationStatus.currentDirection,
     category: "source-control",
     summary:
-      "Pull requests, reviews, repositories, and identity signals as graph context — design-partner scope, not a GitHub analytics product.",
+      "Pull requests, reviews, repositories, and identity signals as graph context - design-partner scope, not a GitHub analytics product.",
   },
   {
     slug: "gitlab",
@@ -126,7 +126,7 @@ export const integrations: ReadonlyArray<IntegrationRecord> = [
     status: integrationStatus.currentDirection,
     category: "project-management",
     summary:
-      "Work items, sprints, and delivery state as canonical entities — design-partner scope, not a Jira dashboard.",
+      "Work items, sprints, and delivery state as canonical entities - design-partner scope, not a Jira dashboard.",
   },
   {
     slug: "linear",

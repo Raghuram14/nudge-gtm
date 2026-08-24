@@ -1,6 +1,6 @@
-# Antarang GTM website
+# Nudgeio GTM website
 
-Public Go-To-Market site for **Antarang**, an Engineering Operating System. This repo talks about the product. It does not import product internals.
+Public Go-To-Market site for **Nudgeio**, an Engineering Operating System. This repo talks about the product. It does not import product internals.
 
 ## Stack
 

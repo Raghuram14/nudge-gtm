@@ -1,5 +1,5 @@
 /**
- * Phase 2 — Zod schemas for demo/product API responses.
+ * Phase 2 - Zod schemas for demo/product API responses.
  * Must stay in sync with `HomeDemoData` in `src/lib/marketing/types.ts`.
  */
 import { z } from "zod";
@@ -84,12 +84,11 @@ export const commandDashboardSchema = z.object({
 });
 
 export const contextGraphNodeToneSchema = z.enum([
-  "indigo",
   "teal",
   "amber",
   "blue",
   "coral",
-  "violet",
+  "slate",
 ]);
 
 export const contextGraphLayoutNodeSchema = z.object({

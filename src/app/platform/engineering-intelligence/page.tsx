@@ -9,7 +9,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Engineering Intelligence",
   description:
-    "Antarang Engineering Intelligence helps teams understand what changed, why it changed, and what deserves attention next — with evidence, not dashboards of what happened.",
+    "Nudgeio Engineering Intelligence helps teams understand what changed, why it changed, and what deserves attention next - with evidence, not dashboards of what happened.",
   path: ROUTES.engineeringIntelligence,
 });
 
@@ -48,7 +48,7 @@ export default function Page(): React.ReactElement {
         what="Intelligence over connected engineering context."
         who="CTO, VP Eng, directors, managers."
         problem="Dashboards show what; they rarely show why with evidence."
-        how="Deterministic insights plus Ask Antarang inferences, visually distinct."
+        how="Deterministic insights plus Ask Nudgeio inferences, visually distinct."
         data="Graph context from connectors."
         output="Investigations, not vanity scores."
         availability="Flagship question in the current slice: why is this sprint at risk?"

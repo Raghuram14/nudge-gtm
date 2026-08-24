@@ -12,10 +12,10 @@ describe("SEO helpers", () => {
     const metadata = buildPageMetadata({
       title: "Stub",
       description: "Stub description for comparison template",
-      path: "/compare/antarang-vs-hatica",
+      path: "/compare/nudgeio-vs-hatica",
       noindex: true,
     });
     expect(metadata.robots).toMatchObject({ index: false, follow: true });
-    expect(metadata.alternates?.canonical).toContain("/compare/antarang-vs-hatica");
+    expect(metadata.alternates?.canonical).toContain("/compare/nudgeio-vs-hatica");
   });
 });

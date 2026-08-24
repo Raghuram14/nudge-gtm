@@ -17,11 +17,9 @@ export function PageHero({
 }: PageHeroProps): React.ReactElement {
   return (
     <header className="w-full max-w-3xl py-10">
-      {eyebrow ? (
-        <p className="mb-3 text-sm font-medium uppercase tracking-wide text-accent">{eyebrow}</p>
-      ) : null}
-      <h1 className="text-4xl font-semibold tracking-tight text-foreground md:text-5xl">{title}</h1>
-      <p className="mt-4 text-lg text-muted">{description}</p>
+      {eyebrow ? <p className="type-label mb-3 text-accent">{eyebrow}</p> : null}
+      <h1 className="type-page-title text-foreground">{title}</h1>
+      <p className="type-body mt-4 text-lg">{description}</p>
       {primaryCta || secondaryCta ? (
         <div className="mt-8 flex flex-wrap gap-3">
           {primaryCta ? <Button href={primaryCta.href}>{primaryCta.label}</Button> : null}

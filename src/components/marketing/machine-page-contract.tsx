@@ -27,7 +27,7 @@ export function MachinePageContract({
         <summary className="cursor-pointer text-lg font-semibold">In short</summary>
       <dl className="mt-4 grid gap-3 text-sm">
         <div>
-          <dt className="font-medium">What is Antarang?</dt>
+          <dt className="font-medium">What is Nudgeio?</dt>
           <dd className="text-muted">{what}</dd>
         </div>
         <div>

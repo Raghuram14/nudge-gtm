@@ -1,12 +1,12 @@
-# Antarang GTM website plan
+# Nudgeio GTM website plan
 
-Public crawlable marketing site for **Antarang**, an Engineering Operating System. Same HTML must work for humans, Google, Bing, and answer engines.
+Public crawlable marketing site for **Nudgeio**, an Engineering Operating System. Same HTML must work for humans, Google, Bing, and answer engines.
 
 ## Assessment
 
-Antarang connects fragmented engineering context (people, work items, pull requests, builds, deployments, services, incidents) into an **Engineering Knowledge Graph** (visitor synonym: Context Graph), then Engineering Intelligence that answers **why**, with evidence. Humans act; AI recommends.
+Nudgeio connects fragmented engineering context (people, work items, pull requests, builds, deployments, services, incidents) into an **Engineering Knowledge Graph** (visitor synonym: Context Graph), then Engineering Intelligence that answers **why**, with evidence. Humans act; AI recommends.
 
-Honest MVP direction (as of the product repo): **GitHub + Jira** → canonical entities → knowledge graph → deterministic insights → flagship question **“Why is this sprint at risk?”**. Public AI surface name: **Ask Antarang**.
+Honest MVP direction (as of the product repo): **GitHub + Jira** → canonical entities → knowledge graph → deterministic insights → flagship question **“Why is this sprint at risk?”**. Public AI surface name: **Ask Nudgeio**.
 
 ## Honest capability matrix
 

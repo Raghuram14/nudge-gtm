@@ -1,4 +1,4 @@
-/** Phase 1 — audience tab switcher; `views` from server-loaded demo bundle. */
+/** Phase 1 - audience tab switcher; `views` from server-loaded demo bundle. */
 "use client";
 
 import { useState } from "react";

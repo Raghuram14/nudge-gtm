@@ -8,9 +8,9 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 <!-- END:nextjs-agent-rules -->
 
-# Agent rules — Antarang GTM site
+# Agent rules — Nudgeio GTM site
 
-This repo is the **public marketing site** for Antarang. It talks about the product. It must not import product internals, Fastify routes, Drizzle schemas, or `@antarang/*` workspace packages.
+This repo is the **public marketing site** for Nudgeio. It talks about the product. It must not import product internals, Fastify routes, Drizzle schemas, or `@nudgeio/*` workspace packages.
 
 ## Before writing code
 

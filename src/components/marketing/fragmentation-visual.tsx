@@ -1,4 +1,4 @@
-/** Phase 1 — fragmentation vs connected graph; sources + evidence trail via props. */
+/** Phase 1 - fragmentation vs connected graph; sources + evidence trail via props. */
 "use client";
 
 import {
@@ -60,10 +60,10 @@ export function FragmentationVisual({
 
       <div className="mock-ui flex min-h-72 flex-col justify-between p-6">
         <div>
-          <p className="mock-label">Antarang context graph</p>
+          <p className="mock-label">Nudgeio context graph</p>
           <p className="mt-2 text-xl font-semibold text-mock-text">One connected story</p>
           <p className="mt-2 text-sm text-mock-muted">
-            Evidence from every source — linked, traceable, explainable.
+            Evidence from every source - linked, traceable, explainable.
           </p>
         </div>
         <svg viewBox="0 0 280 140" className="my-4 h-auto w-full" aria-hidden>

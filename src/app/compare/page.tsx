@@ -10,55 +10,55 @@ const capabilityMatrix = [
     capability: "Delivery metrics",
     basic: true,
     category: true,
-    antarang: true,
+    nudgeio: true,
   },
   {
     capability: "Trend analysis",
     basic: true,
     category: true,
-    antarang: true,
+    nudgeio: true,
   },
   {
     capability: "Multi-source context",
     basic: "Limited",
     category: true,
-    antarang: true,
+    nudgeio: true,
   },
   {
     capability: "Knowledge graph",
     basic: false,
     category: "Varies",
-    antarang: "Core concept",
+    nudgeio: "Core concept",
   },
   {
     capability: "Evidence-linked explanations",
     basic: false,
     category: "Varies",
-    antarang: "Core concept",
+    nudgeio: "Core concept",
   },
   {
     capability: "Architecture context",
     basic: "Limited",
     category: "Varies",
-    antarang: "Core concept",
+    nudgeio: "Core concept",
   },
   {
     capability: "Decision history",
     basic: false,
     category: "Varies",
-    antarang: "Core concept",
+    nudgeio: "Core concept",
   },
   {
     capability: "Why analysis",
     basic: "Limited",
     category: "AI-assisted",
-    antarang: "Evidence-first",
+    nudgeio: "Evidence-first",
   },
   {
     capability: "Agent context",
     basic: false,
     category: "Emerging",
-    antarang: "Future direction",
+    nudgeio: "Future direction",
   },
 ] as const;
 
@@ -67,13 +67,13 @@ function CellValue({ value }: { value: boolean | string }): React.ReactElement {
     return <span className="font-semibold text-observed">✓</span>;
   }
   if (value === false) {
-    return <span className="text-muted">—</span>;
+    return <span className="text-muted">-</span>;
   }
   if (value === "Core concept" || value === "Evidence-first") {
     return <span className="font-medium text-accent">{value}</span>;
   }
   if (value === "Future direction") {
-    return <span className="font-medium text-[#7c3aed]">{value}</span>;
+    return <span className="font-medium text-knowledge">{value}</span>;
   }
   if (value === "Limited") {
     return <span className="text-inferred">{value}</span>;
@@ -84,7 +84,7 @@ function CellValue({ value }: { value: boolean | string }): React.ReactElement {
 export const metadata: Metadata = buildPageMetadata({
   title: "Compare",
   description:
-    "Category gaps: disconnected metrics vs connected engineering context and evidence-backed reasoning. Respectful comparison — no unsourced competitor claims.",
+    "Category gaps: disconnected metrics vs connected engineering context and evidence-backed reasoning. Respectful comparison - no unsourced competitor claims.",
   path: ROUTES.compare,
 });
 
@@ -93,10 +93,10 @@ export default function Page(): React.ReactElement {
     <SimplePage
       crumbs={[{ href: ROUTES.compare, label: "Compare" }]}
       title="Compare"
-      description="The contrast is between disconnected views and connected context — not surveillance or vanity metrics."
+      description="The contrast is between disconnected views and connected context - not surveillance or vanity metrics."
     >
       <div className="mb-8 grid gap-3 sm:grid-cols-3">
-        <ColorNavCard href={ROUTES.blog} title="Blog" description="Dated notes" accent="indigo" />
+        <ColorNavCard href={ROUTES.blog} title="Blog" description="Dated notes" accent="teal" />
         <ColorNavCard href={ROUTES.learn} title="Learn" description="Explainers" accent="teal" />
         <ColorNavCard
           href={ROUTES.research}
@@ -117,7 +117,7 @@ export default function Page(): React.ReactElement {
               <th className="px-4 py-3 font-semibold text-accent">Capability</th>
               <th className="px-4 py-3 font-semibold text-inferred">Basic metrics</th>
               <th className="px-4 py-3 font-semibold text-reasoning">Engineering intelligence</th>
-              <th className="px-4 py-3 font-semibold text-observed">Antarang direction</th>
+              <th className="px-4 py-3 font-semibold text-observed">Nudgeio direction</th>
             </tr>
           </thead>
           <tbody>
@@ -138,7 +138,7 @@ export default function Page(): React.ReactElement {
                   <CellValue value={row.category} />
                 </td>
                 <td className="px-4 py-3">
-                  <CellValue value={row.antarang} />
+                  <CellValue value={row.nudgeio} />
                 </td>
               </tr>
             ))}

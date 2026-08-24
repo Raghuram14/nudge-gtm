@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { BrandMark } from "@/components/layout/brand-mark";
+import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { headerCta, primaryNavigation } from "@/config/navigation";
 import { ROUTES } from "@/config/routes";
@@ -14,24 +15,23 @@ export function SiteHeader(): React.ReactElement {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border gtm-glass">
-      <div className="flash-edge h-0.5 w-full rounded-none" />
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
-        <Link href={ROUTES.home} aria-label="Antarang home">
+        <Link href={ROUTES.home} aria-label="Nudgeio home">
           <BrandMark />
         </Link>
-        <nav aria-label="Primary" className="hidden items-center gap-6 lg:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-7 lg:flex">
           {primaryNavigation.map((item) => (
-            <div key={item.label} className="relative">
-              <Link
-                href={item.href}
-                className="text-sm text-muted transition-colors hover:text-accent hover:underline"
-              >
-                {item.label}
-              </Link>
-            </div>
+            <Link
+              key={item.label}
+              href={item.href}
+              className="text-sm text-muted transition-colors hover:text-foreground"
+            >
+              {item.label}
+            </Link>
           ))}
         </nav>
-        <div className="hidden lg:block">
+        <div className="hidden items-center gap-2 lg:flex">
+          <ThemeToggle />
           <Button
             href={headerCta.href}
             onClick={() => track("cta_click", { label: headerCta.label, surface: "header" })}
@@ -39,15 +39,18 @@ export function SiteHeader(): React.ReactElement {
             {headerCta.label}
           </Button>
         </div>
-        <Button
-          variant="secondary"
-          className="lg:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          onClick={() => setOpen((value) => !value)}
-        >
-          Menu
-        </Button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <ThemeToggle />
+          <Button
+            variant="secondary"
+            className="min-h-9"
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            onClick={() => setOpen((value) => !value)}
+          >
+            Menu
+          </Button>
+        </div>
       </div>
       {open ? (
         <nav id="mobile-nav" aria-label="Mobile" className="border-t border-border px-4 py-4 lg:hidden">
