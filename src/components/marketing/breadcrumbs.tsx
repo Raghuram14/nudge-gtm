@@ -6,21 +6,32 @@ export type Crumb = { href: string; label: string };
 
 export function Breadcrumbs({ items }: { items: ReadonlyArray<Crumb> }): React.ReactElement {
   return (
-    <nav aria-label="Breadcrumb" className="mb-6 text-sm text-muted">
-      <ol className="flex flex-wrap gap-2">
+    <nav aria-label="Breadcrumb">
+      <ol className="type-label flex flex-wrap items-center gap-2">
         <li>
-          <Link href={ROUTES.home} className="hover:text-foreground">
+          <Link href={ROUTES.home} className="transition-colors hover:text-foreground">
             Home
           </Link>
         </li>
-        {items.map((item) => (
-          <li key={item.href} className="flex gap-2">
-            <span aria-hidden="true">/</span>
-            <Link href={item.href} className="hover:text-foreground">
-              {item.label}
-            </Link>
-          </li>
-        ))}
+        {items.map((item, index) => {
+          const isLast = index === items.length - 1;
+          return (
+            <li key={item.href} className="flex items-center gap-2">
+              <span aria-hidden className="text-border-strong">
+                /
+              </span>
+              {isLast ? (
+                <span aria-current="page" className="text-foreground">
+                  {item.label}
+                </span>
+              ) : (
+                <Link href={item.href} className="transition-colors hover:text-foreground">
+                  {item.label}
+                </Link>
+              )}
+            </li>
+          );
+        })}
       </ol>
     </nav>
   );

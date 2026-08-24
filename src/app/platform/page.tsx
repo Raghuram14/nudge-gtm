@@ -11,27 +11,27 @@ const platformLinks = [
   {
     href: ROUTES.contextGraph,
     title: "Context Graph",
-    description: "Relationships and provenance across engineering entities",
+    description: "Relationships and provenance across engineering entities.",
   },
   {
     href: ROUTES.engineeringIntelligence,
     title: "Engineering Intelligence",
-    description: "Reason over connected context with evidence",
+    description: "Reason over connected context, with evidence.",
   },
   {
     href: ROUTES.projectHealth,
     title: "Project health",
-    description: "Investigate delivery risk with evidence",
+    description: "Investigate delivery risk from artifacts, not status meetings.",
   },
   {
     href: ROUTES.evidenceFirstAi,
     title: "Evidence-first AI",
-    description: "Answers with source citations and labeled inference",
+    description: "Answers with source citations and labelled inference.",
   },
   {
     href: ROUTES.mcp,
     title: "MCP / agents",
-    description: "Organizational context for AI-assisted development",
+    description: "Organisational context for AI-assisted development.",
   },
 ] as const;
 
@@ -46,11 +46,14 @@ export default function Page(): React.ReactElement {
   return (
     <SimplePage
       crumbs={[{ href: ROUTES.platform, label: "Platform" }]}
-      title="Platform"
-      description="An engineering intelligence layer that connects evidence and context across systems - from artifacts to explainable answers."
+      eyebrow="Platform"
+      title="From scattered artifacts to explainable answers."
+      description="An engineering intelligence layer that connects evidence and context across the systems you already run."
     >
       <SystemDiagram />
-      <ul className="mt-8 grid items-stretch gap-3 sm:grid-cols-2">
+
+      <h2 className="mt-4">Explore the layer</h2>
+      <ul className="grid items-stretch gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {platformLinks.map((link, index) => (
           <li key={link.href}>
             <ColorNavCard

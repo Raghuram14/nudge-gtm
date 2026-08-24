@@ -34,19 +34,19 @@ export default async function Page(): Promise<React.ReactElement> {
         { href: ROUTES.integrationsJira, label: "Jira" },
       ]}
     >
-      <h2 className="text-xl font-semibold text-foreground">What it is</h2>
+      <h2>What it is</h2>
       <p>
         An engineering context / knowledge graph connects Organization → Team → Person →
         Project → Sprint → Work item → Pull request → Review → Build → Deployment → Service →
         Incident, including customer or product impact when that data exists.
       </p>
       <ContextGraphVisualizer layout={demo.contextGraph} />
-      <h2 className="text-xl font-semibold text-foreground">Why it exists</h2>
+      <h2>Why it exists</h2>
       <p>
         Metrics describe what moved. Without relationships, you cannot diagnose why a sprint is
         at risk, which dependency is blocking work, or which service a change affects.
       </p>
-      <h2 className="text-xl font-semibold text-foreground">Available today vs later</h2>
+      <h2>Available today vs later</h2>
       <p>
         The current product direction is a vertical slice: GitHub + Jira into canonical entities
         and graph context. Broader ingest is coming soon.

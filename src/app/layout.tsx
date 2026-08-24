@@ -1,7 +1,7 @@
 import "./globals.css";
 
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Newsreader } from "next/font/google";
 
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
@@ -23,6 +23,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+/** Editorial display face. Headlines only - body and UI stay on Geist. */
+const displaySerif = Newsreader({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   ...buildPageMetadata({
     title: `${siteConfig.name} · ${siteConfig.category}`,
@@ -40,7 +49,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full`}
+      className={`${geistSans.variable} ${geistMono.variable} ${displaySerif.variable} h-full`}
       data-theme="light"
       suppressHydrationWarning
     >

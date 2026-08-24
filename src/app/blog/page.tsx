@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
-import { ColorArticleCard, ColorNavCard } from "@/components/marketing/color-nav-card";
+import { ColorArticleCard } from "@/components/marketing/color-nav-card";
+import { ResourceNav } from "@/components/marketing/resource-nav";
 import { SimplePage } from "@/components/marketing/simple-page";
 import { resourceAccents } from "@/config/accent-tones";
 import { ROUTES } from "@/config/routes";
@@ -16,33 +17,20 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function Page(): React.ReactElement {
   const posts = loadArticles("blog").filter((post) => !post.frontmatter.noindex);
+
   return (
     <SimplePage
       crumbs={[{ href: ROUTES.blog, label: "Blog" }]}
+      eyebrow="Writing"
       title="Blog"
-      description="Original, dated notes. Empty state is honest if nothing is published."
+      description="Original, dated notes. If nothing is published, this page says so rather than padding itself out."
     >
-      <div className="mb-8 grid gap-3 sm:grid-cols-3">
-        <ColorNavCard href={ROUTES.learn} title="Learn" description="Explainers" accent="teal" />
-        <ColorNavCard
-          href={ROUTES.research}
-          title="Research"
-          description="Notes & pillars"
-          accent="amber"
-        />
-        <ColorNavCard
-          href={ROUTES.compare}
-          title="Compare"
-          description="Category gaps"
-          accent="slate"
-        />
-      </div>
       {posts.length === 0 ? (
-        <p className="rounded-xl border border-dashed border-border bg-accent-muted/40 px-4 py-6 text-sm text-muted">
+        <p className="rounded-lg border border-dashed border-border bg-surface-elevated px-5 py-6 text-sm text-text-tertiary">
           No posts yet.
         </p>
       ) : (
-        <ul className="grid gap-4">
+        <ul className="grid">
           {posts.map((post, index) => (
             <ColorArticleCard
               key={post.frontmatter.slug}
@@ -55,6 +43,7 @@ export default function Page(): React.ReactElement {
           ))}
         </ul>
       )}
+      <ResourceNav current={ROUTES.blog} className="mt-8" />
     </SimplePage>
   );
 }

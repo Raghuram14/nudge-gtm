@@ -1,5 +1,13 @@
 export type AccentTone = "teal" | "amber" | "blue" | "coral" | "slate";
 
+/**
+ * Categorical accents.
+ *
+ * The palette used to paint whole cards - tinted fill, 4px coloured edge, and
+ * coloured heading - which read as a colour-coded dashboard and fought the
+ * scarce-accent system. The category information is still here, but it is now
+ * carried by a single dot. Surfaces and text stay neutral.
+ */
 export const accentTones: Record<
   AccentTone,
   {
@@ -11,37 +19,37 @@ export const accentTones: Record<
   }
 > = {
   teal: {
-    border: "border-l-accent",
-    softBg: "bg-accent-muted/80",
-    text: "text-accent",
+    border: "border-l-border-strong",
+    softBg: "bg-surface",
+    text: "text-foreground",
     chip: "border-accent/40 bg-accent-muted text-accent",
     dot: "bg-accent",
   },
   amber: {
-    border: "border-l-inferred",
-    softBg: "bg-[color-mix(in_oklab,var(--inferred)_12%,var(--surface))]",
-    text: "text-inferred",
+    border: "border-l-border-strong",
+    softBg: "bg-surface",
+    text: "text-foreground",
     chip: "border-inferred/40 bg-[color-mix(in_oklab,var(--inferred)_12%,var(--surface))] text-inferred",
     dot: "bg-inferred",
   },
   blue: {
-    border: "border-l-reasoning",
-    softBg: "bg-[color-mix(in_oklab,var(--reasoning)_12%,var(--surface))]",
-    text: "text-reasoning",
+    border: "border-l-border-strong",
+    softBg: "bg-surface",
+    text: "text-foreground",
     chip: "border-reasoning/40 bg-[color-mix(in_oklab,var(--reasoning)_12%,var(--surface))] text-reasoning",
     dot: "bg-reasoning",
   },
   coral: {
-    border: "border-l-risk-high",
-    softBg: "bg-[color-mix(in_oklab,var(--risk-high)_12%,var(--surface))]",
-    text: "text-risk-high",
+    border: "border-l-border-strong",
+    softBg: "bg-surface",
+    text: "text-foreground",
     chip: "border-risk-high/40 bg-[color-mix(in_oklab,var(--risk-high)_12%,var(--surface))] text-risk-high",
     dot: "bg-risk-high",
   },
   slate: {
-    border: "border-l-knowledge",
-    softBg: "bg-[color-mix(in_oklab,var(--knowledge)_14%,var(--surface))]",
-    text: "text-knowledge",
+    border: "border-l-border-strong",
+    softBg: "bg-surface",
+    text: "text-foreground",
     chip: "border-knowledge/40 bg-[color-mix(in_oklab,var(--knowledge)_14%,var(--surface))] text-knowledge",
     dot: "bg-knowledge",
   },

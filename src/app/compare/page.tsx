@@ -1,59 +1,24 @@
 import type { Metadata } from "next";
 
-import { ColorNavCard } from "@/components/marketing/color-nav-card";
+import { ResourceNav } from "@/components/marketing/resource-nav";
 import { SimplePage } from "@/components/marketing/simple-page";
 import { ROUTES } from "@/config/routes";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 const capabilityMatrix = [
-  {
-    capability: "Delivery metrics",
-    basic: true,
-    category: true,
-    nudgeio: true,
-  },
-  {
-    capability: "Trend analysis",
-    basic: true,
-    category: true,
-    nudgeio: true,
-  },
-  {
-    capability: "Multi-source context",
-    basic: "Limited",
-    category: true,
-    nudgeio: true,
-  },
-  {
-    capability: "Knowledge graph",
-    basic: false,
-    category: "Varies",
-    nudgeio: "Core concept",
-  },
+  { capability: "Delivery metrics", basic: true, category: true, nudgeio: true },
+  { capability: "Trend analysis", basic: true, category: true, nudgeio: true },
+  { capability: "Multi-source context", basic: "Limited", category: true, nudgeio: true },
+  { capability: "Knowledge graph", basic: false, category: "Varies", nudgeio: "Core concept" },
   {
     capability: "Evidence-linked explanations",
     basic: false,
     category: "Varies",
     nudgeio: "Core concept",
   },
-  {
-    capability: "Architecture context",
-    basic: "Limited",
-    category: "Varies",
-    nudgeio: "Core concept",
-  },
-  {
-    capability: "Decision history",
-    basic: false,
-    category: "Varies",
-    nudgeio: "Core concept",
-  },
-  {
-    capability: "Why analysis",
-    basic: "Limited",
-    category: "AI-assisted",
-    nudgeio: "Evidence-first",
-  },
+  { capability: "Architecture context", basic: "Limited", category: "Varies", nudgeio: "Core concept" },
+  { capability: "Decision history", basic: false, category: "Varies", nudgeio: "Core concept" },
+  { capability: "Why analysis", basic: "Limited", category: "AI-assisted", nudgeio: "Evidence-first" },
   {
     capability: "Agent context",
     basic: false,
@@ -64,21 +29,25 @@ const capabilityMatrix = [
 
 function CellValue({ value }: { value: boolean | string }): React.ReactElement {
   if (value === true) {
-    return <span className="font-semibold text-observed">✓</span>;
+    return (
+      <span className="text-success">
+        <span aria-hidden>&#10003;</span>
+        <span className="sr-only">Yes</span>
+      </span>
+    );
   }
   if (value === false) {
-    return <span className="text-muted">-</span>;
+    return (
+      <span className="text-text-tertiary">
+        <span aria-hidden>&mdash;</span>
+        <span className="sr-only">No</span>
+      </span>
+    );
   }
   if (value === "Core concept" || value === "Evidence-first") {
-    return <span className="font-medium text-accent">{value}</span>;
+    return <span className="font-medium text-foreground">{value}</span>;
   }
-  if (value === "Future direction") {
-    return <span className="font-medium text-knowledge">{value}</span>;
-  }
-  if (value === "Limited") {
-    return <span className="text-inferred">{value}</span>;
-  }
-  return <span className="text-reasoning">{value}</span>;
+  return <span className="text-text-secondary">{value}</span>;
 }
 
 export const metadata: Metadata = buildPageMetadata({
@@ -92,52 +61,52 @@ export default function Page(): React.ReactElement {
   return (
     <SimplePage
       crumbs={[{ href: ROUTES.compare, label: "Compare" }]}
+      eyebrow="Category"
       title="Compare"
       description="The contrast is between disconnected views and connected context - not surveillance or vanity metrics."
+      width="wide"
     >
-      <div className="mb-8 grid gap-3 sm:grid-cols-3">
-        <ColorNavCard href={ROUTES.blog} title="Blog" description="Dated notes" accent="teal" />
-        <ColorNavCard href={ROUTES.learn} title="Learn" description="Explainers" accent="teal" />
-        <ColorNavCard
-          href={ROUTES.research}
-          title="Research"
-          description="Notes & pillars"
-          accent="amber"
-        />
-      </div>
-      <p className="rounded-xl border border-l-4 border-border border-l-accent bg-accent-muted/50 px-4 py-3 text-sm text-muted">
+      <p className="border-l-2 border-accent pl-5">
         Metrics tell you where to look. Context tells you what connects. Evidence-backed reasoning
-        helps you understand why. We do not claim competitors lack specific capabilities unless
-        verified.
+        helps you understand why. We do not claim a competitor lacks a capability unless we have
+        verified it.
       </p>
-      <div className="mt-6 overflow-x-auto rounded-xl border border-border">
+
+      <div className="overflow-x-auto rounded-lg border border-border">
         <table className="w-full min-w-[720px] border-collapse text-left text-sm">
+          <caption className="sr-only">
+            Capability comparison across basic metrics tools, engineering intelligence platforms,
+            and the Nudgeio direction.
+          </caption>
           <thead>
-            <tr className="bg-accent-muted/60">
-              <th className="px-4 py-3 font-semibold text-accent">Capability</th>
-              <th className="px-4 py-3 font-semibold text-inferred">Basic metrics</th>
-              <th className="px-4 py-3 font-semibold text-reasoning">Engineering intelligence</th>
-              <th className="px-4 py-3 font-semibold text-observed">Nudgeio direction</th>
+            <tr className="border-b border-border bg-surface-elevated">
+              <th scope="col" className="type-label px-5 py-4">
+                Capability
+              </th>
+              <th scope="col" className="type-label px-5 py-4">
+                Basic metrics
+              </th>
+              <th scope="col" className="type-label px-5 py-4">
+                Engineering intelligence
+              </th>
+              <th scope="col" className="type-label px-5 py-4 text-foreground">
+                Nudgeio direction
+              </th>
             </tr>
           </thead>
           <tbody>
-            {capabilityMatrix.map((row, index) => (
-              <tr
-                key={row.capability}
-                className={
-                  index % 2 === 0
-                    ? "border-t border-border bg-surface"
-                    : "border-t border-border bg-[color-mix(in_oklab,var(--accent)_4%,white)]"
-                }
-              >
-                <td className="px-4 py-3 font-medium text-foreground">{row.capability}</td>
-                <td className="px-4 py-3">
+            {capabilityMatrix.map((row) => (
+              <tr key={row.capability} className="border-t border-border-subtle bg-surface">
+                <th scope="row" className="px-5 py-4 text-left font-medium text-foreground">
+                  {row.capability}
+                </th>
+                <td className="px-5 py-4">
                   <CellValue value={row.basic} />
                 </td>
-                <td className="px-4 py-3">
+                <td className="px-5 py-4">
                   <CellValue value={row.category} />
                 </td>
-                <td className="px-4 py-3">
+                <td className="px-5 py-4">
                   <CellValue value={row.nudgeio} />
                 </td>
               </tr>
@@ -145,6 +114,14 @@ export default function Page(): React.ReactElement {
           </tbody>
         </table>
       </div>
+
+      <p className="type-caption">
+        &ldquo;Core concept&rdquo; and &ldquo;Future direction&rdquo; describe intent, not shipped
+        capability. See the build status on the{" "}
+        <a href={`${ROUTES.home}#build-status`}>homepage</a> for what is actually running.
+      </p>
+
+      <ResourceNav current={ROUTES.compare} className="mt-4" />
     </SimplePage>
   );
 }

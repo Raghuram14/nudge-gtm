@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
-import { ColorArticleCard, ColorNavCard } from "@/components/marketing/color-nav-card";
+import { ColorArticleCard } from "@/components/marketing/color-nav-card";
+import { ResourceNav } from "@/components/marketing/resource-nav";
 import { SimplePage } from "@/components/marketing/simple-page";
 import { resourceAccents } from "@/config/accent-tones";
 import { ROUTES } from "@/config/routes";
@@ -16,33 +17,20 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function Page(): React.ReactElement {
   const posts = loadArticles("learn").filter((post) => !post.frontmatter.noindex);
+
   return (
     <SimplePage
       crumbs={[{ href: ROUTES.learn, label: "Learn" }]}
+      eyebrow="Writing"
       title="Learn"
-      description="Explainers for engineering leaders. Not doorway SEO pages."
+      description="Explainers for engineering leaders, written to be read once and understood. Not doorway SEO pages."
     >
-      <div className="mb-8 grid gap-3 sm:grid-cols-3">
-        <ColorNavCard href={ROUTES.blog} title="Blog" description="Dated notes" accent="teal" />
-        <ColorNavCard
-          href={ROUTES.research}
-          title="Research"
-          description="Notes & pillars"
-          accent="amber"
-        />
-        <ColorNavCard
-          href={ROUTES.compare}
-          title="Compare"
-          description="Category gaps"
-          accent="slate"
-        />
-      </div>
       {posts.length === 0 ? (
-        <p className="rounded-xl border border-dashed border-border bg-[color-mix(in_oklab,var(--observed)_10%,white)] px-4 py-6 text-sm text-muted">
+        <p className="rounded-lg border border-dashed border-border bg-surface-elevated px-5 py-6 text-sm text-text-tertiary">
           No explainers yet.
         </p>
       ) : (
-        <ul className="grid gap-4">
+        <ul className="grid">
           {posts.map((post, index) => (
             <ColorArticleCard
               key={post.frontmatter.slug}
@@ -54,6 +42,7 @@ export default function Page(): React.ReactElement {
           ))}
         </ul>
       )}
+      <ResourceNav current={ROUTES.learn} className="mt-8" />
     </SimplePage>
   );
 }

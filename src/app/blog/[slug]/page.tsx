@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { ArticleBody } from "@/components/content/article-body";
-import { Breadcrumbs } from "@/components/marketing/breadcrumbs";
+import { ArticleLayout } from "@/components/content/article-layout";
 import { JsonLd } from "@/components/seo/json-ld";
 import { ROUTES } from "@/config/routes";
 import { absoluteUrl, siteConfig } from "@/config/site";
@@ -46,8 +45,16 @@ export default async function Page({
     notFound();
   }
   const path = article.frontmatter.canonical ?? `/blog/${slug}`;
+
   return (
-    <main id="main" className="mx-auto w-full max-w-6xl px-4 py-8">
+    <ArticleLayout
+      article={article}
+      eyebrow="Blog"
+      crumbs={[
+        { href: ROUTES.blog, label: "Blog" },
+        { href: path, label: article.frontmatter.title },
+      ]}
+    >
       <JsonLd
         data={articleJsonLd({
           headline: article.frontmatter.title,
@@ -58,18 +65,6 @@ export default async function Page({
           author: article.frontmatter.author || siteConfig.name,
         })}
       />
-      <Breadcrumbs
-        items={[
-          { href: ROUTES.blog, label: "Blog" },
-          { href: path, label: article.frontmatter.title },
-        ]}
-      />
-      <h1 className="mb-4 text-4xl font-semibold">{article.frontmatter.title}</h1>
-      <p className="mb-8 text-sm text-muted">
-        {article.frontmatter.author} · {article.frontmatter.publishedAt} · updated{" "}
-        {article.frontmatter.updatedAt}
-      </p>
-      <ArticleBody article={article} />
-    </main>
+    </ArticleLayout>
   );
 }

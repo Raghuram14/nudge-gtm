@@ -45,7 +45,6 @@ export function AnnotatedInsightChart({
             strokeLinejoin="round"
             strokeLinecap="round"
             points={points}
-            className="spark-line"
           />
         </svg>
         <p className="type-caption mt-2 border-l-2 border-accent pl-3 text-foreground">

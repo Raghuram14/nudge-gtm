@@ -8,7 +8,7 @@ export async function ArticleBody({
   article: LoadedArticle;
 }): Promise<React.ReactElement> {
   return (
-    <article className="grid w-full max-w-3xl gap-4 text-muted">
+    <article className="page-body grid w-full gap-5">
       <MDXRemote source={article.body} />
     </article>
   );

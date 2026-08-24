@@ -47,6 +47,32 @@ Next.js App Router, TypeScript `strict`, Tailwind + semantic tokens, MDX + Zod, 
 - No secrets in git. `.env.example` only.
 - Reuse `src/components/ui` primitives. No raw `<button>` / `<input>` in features.
 
+## Design system (Ink + Ember)
+
+Editorial, light-first. Newsreader carries headlines (`.type-display`, `.type-page-title`,
+`.type-section-title`, `.type-quote`); Geist Sans carries body and UI; Geist Mono is semantic —
+IDs, metrics, evidence, labels — never decoration.
+
+- **Primary actions are ink** (`--ink`, near-black), not the accent. `Button` variants:
+  `primary` = ink, `secondary` = outlined, `accent` = ember (rare), `ghost`.
+- **Ember (`--accent`) is scarce and interactive-only.** Never put it on a badge, meter, or
+  status dot. Warning amber (`--warning`) is status-only — never on a link or button. These two
+  are near neighbours and the rule is what keeps them apart. It is restated in `globals.css`.
+- **Section rhythm comes from `section-shell.tsx`**: `SectionShell` (`tone`: mist / paper /
+  tinted / inverted), `SplitSection`, `PullQuote`. Do not stack identical `py-20` blocks — that
+  is what made the old site read as one repeated rectangle. A page should alternate assertion
+  (typographic, open) and proof (framed, inspectable).
+- **Every mockup goes inside `ProductFrame`**, which renders the mandatory "Example" label. Mock
+  UI uses `--mock-*`, which follows the theme and mimics the product's own indigo.
+- **Capability claims read from `src/config/capability-status.ts`** and render via
+  `StatusMarker` (Live / Building / Roadmap). This is a designed credibility element, not a
+  disclaimer — do not hide or soften it, and do not claim a capability whose state is `roadmap`.
+- **Body copy uses `.page-body`**, whose selectors are wrapped in `:where()` so they carry zero
+  specificity and an element with its own class always wins. Lists that carry a `className` are
+  treated as layout and opt out of bullets.
+- Categorical colour lives in a single dot via `accent-tones.ts`. Do not reintroduce tinted card
+  fills or `border-l-4` colour bars — surfaces and text stay neutral.
+
 Default CTAs (config-driven): Request Early Access, Book a Demo, Join the Design Partner Program. No free trial unless sourced.
 
 ## Definition of done

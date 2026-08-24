@@ -29,7 +29,7 @@ export default function Page(): React.ReactElement {
         { href: ROUTES.learnContextDiagnosis, label: "Diagnosis explainer" },
       ]}
     >
-      <h2 className="text-xl font-semibold text-foreground">Context over raw telemetry</h2>
+      <h2>Context over raw telemetry</h2>
       <p>
         Dashboards and DORA-style numbers are inputs. They do not explain blocked work, review
         concentration, dependency delay, or why a project took longer than expected. Intelligence

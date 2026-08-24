@@ -6,13 +6,19 @@ export function RelatedContent({
   items: ReadonlyArray<{ href: string; label: string }>;
 }): React.ReactElement {
   return (
-    <aside>
-      <h2 className="mb-3 text-lg font-semibold">Related</h2>
-      <ul className="flex flex-col gap-2">
+    <aside className="lg:sticky lg:top-24">
+      <h2 className="type-label border-b border-border pb-3">Related</h2>
+      <ul className="mt-1 flex flex-col">
         {items.map((item) => (
-          <li key={item.href}>
-            <Link href={item.href} className="text-sm text-accent hover:underline">
-              {item.label}
+          <li key={item.href} className="border-b border-border-subtle">
+            <Link
+              href={item.href}
+              className="flex items-baseline justify-between gap-3 py-3 text-sm text-foreground transition-colors hover:text-accent"
+            >
+              <span>{item.label}</span>
+              <span aria-hidden className="text-text-tertiary">
+                &rarr;
+              </span>
             </Link>
           </li>
         ))}

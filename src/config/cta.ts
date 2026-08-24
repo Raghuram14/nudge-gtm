@@ -14,7 +14,7 @@ export type CtaIntent = z.infer<typeof ctaIntentSchema>;
 export const ctaConfig = {
   seeInAction: {
     id: "see-in-action",
-    label: "See Nudgeio in action",
+    label: "Book a demo",
     intent: "demo",
   },
   exploreHowItWorks: {

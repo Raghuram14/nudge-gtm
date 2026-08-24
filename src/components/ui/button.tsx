@@ -4,9 +4,11 @@ import { cn } from "@/lib/cn";
 
 const variants = {
   primary:
-    "rounded-md bg-accent text-accent-fg hover:bg-accent-hover active:scale-[0.98] disabled:pointer-events-none disabled:opacity-40",
+    "rounded-md bg-ink text-ink-fg hover:bg-ink-hover active:scale-[0.98] disabled:pointer-events-none disabled:opacity-40",
   secondary:
-    "rounded-md border border-border bg-surface-raised text-foreground hover:border-accent/50 hover:bg-surface-hover active:scale-[0.98] disabled:pointer-events-none disabled:opacity-40",
+    "rounded-md border border-border-strong bg-surface text-foreground hover:border-ink hover:bg-surface-hover active:scale-[0.98] disabled:pointer-events-none disabled:opacity-40",
+  accent:
+    "rounded-md bg-accent text-accent-fg hover:bg-accent-hover active:scale-[0.98] disabled:pointer-events-none disabled:opacity-40",
   ghost:
     "rounded-md text-foreground hover:bg-surface-hover hover:text-accent active:scale-[0.98] disabled:pointer-events-none disabled:opacity-40",
 } as const;

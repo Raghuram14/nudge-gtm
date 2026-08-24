@@ -30,7 +30,7 @@ export default function Page(): React.ReactElement {
         { href: ROUTES.contextGraph, label: "Context Graph" },
       ]}
     >
-      <h2 className="text-xl font-semibold text-foreground">How delivery risk should be measured</h2>
+      <h2>How delivery risk should be measured</h2>
       <p>
         Prefer system signals: blocked work items, downstream services, review latency, and
         dependency delay. Correlation is not causation. Example panels below are illustrative.

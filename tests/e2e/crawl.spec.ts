@@ -4,9 +4,9 @@ test("homepage hero copy is in HTML without client JS", async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
   await page.goto("/");
-  await expect(page.locator("h1")).toContainText("Engineering Intelligence");
+  await expect(page.locator("h1")).toContainText("Engineering decisions deserve evidence");
   await expect(page.locator("body")).toContainText(
-    "Nudgeio connects the people, projects, work items, code, reviews, builds, deployments, services, incidents, and AI activity",
+    "Nudgeio connects the systems your team already uses and explains why delivery moved",
   );
   const title = await page.title();
   expect(title.toLowerCase()).toContain("nudgeio");

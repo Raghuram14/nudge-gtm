@@ -1,8 +1,15 @@
 import Link from "next/link";
 
-import { type AccentTone,accentTones } from "@/config/accent-tones";
+import { type AccentTone, accentTones } from "@/config/accent-tones";
 import { cn } from "@/lib/cn";
 
+/**
+ * Index card for hub pages.
+ *
+ * These used to be painted cards - tinted fill, 4px coloured edge, coloured
+ * heading - which turned every index into a colour-coded dashboard. The
+ * category is now carried by a single dot; the card itself stays neutral.
+ */
 export function ColorNavCard({
   href,
   title,
@@ -19,23 +26,24 @@ export function ColorNavCard({
   return (
     <Link
       href={href}
-      className={cn(
-        "lift flex min-h-24 flex-col justify-center rounded-xl border border-border border-l-4 px-4 py-4 transition-colors",
-        colors.border,
-        colors.softBg,
-      )}
+      className="lift group flex h-full min-h-24 flex-col justify-between rounded-lg border border-border bg-surface p-5 transition-colors hover:border-border-strong"
     >
-      <span className="flex items-center gap-2">
-        <span className={cn("size-2.5 rounded-full", colors.dot)} aria-hidden />
-        <span className={cn("font-semibold", colors.text)}>{title}</span>
+      <span className="flex items-center gap-2.5">
+        <span className={cn("size-1.5 shrink-0 rounded-full", colors.dot)} aria-hidden />
+        <span className="text-sm font-medium text-foreground">{title}</span>
+        <span
+          aria-hidden
+          className="ml-auto text-text-tertiary transition-transform group-hover:translate-x-0.5"
+        >
+          &rarr;
+        </span>
       </span>
-      {description ? (
-        <span className="mt-1.5 text-sm font-normal text-muted">{description}</span>
-      ) : null}
+      {description ? <span className="type-caption mt-4 block">{description}</span> : null}
     </Link>
   );
 }
 
+/** Editorial index entry - a rule, a serif title, mono metadata. */
 export function ColorArticleCard({
   href,
   title,
@@ -52,18 +60,20 @@ export function ColorArticleCard({
   const colors = accentTones[accent];
 
   return (
-    <li
-      className={cn(
-        "rounded-xl border border-border border-l-4 px-4 py-4",
-        colors.border,
-        colors.softBg,
-      )}
-    >
-      <Link href={href} className={cn("text-base font-semibold hover:underline", colors.text)}>
-        {title}
+    <li className="group border-t border-border py-6 first:border-t-0 first:pt-0">
+      <Link href={href} className="block">
+        <span className="flex items-baseline gap-2.5">
+          <span
+            className={cn("mt-2 size-1.5 shrink-0 self-start rounded-full", colors.dot)}
+            aria-hidden
+          />
+          <span className="type-section-title text-foreground transition-colors group-hover:text-accent">
+            {title}
+          </span>
+        </span>
+        {description ? <span className="type-body mt-3 block pl-4">{description}</span> : null}
+        {meta ? <span className="type-metadata mt-3 block pl-4">{meta}</span> : null}
       </Link>
-      {description ? <p className="mt-1 text-sm text-muted">{description}</p> : null}
-      {meta ? <p className={cn("mt-2 text-xs font-medium", colors.text)}>{meta}</p> : null}
     </li>
   );
 }

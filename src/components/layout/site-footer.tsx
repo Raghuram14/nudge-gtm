@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { BrandMark } from "@/components/layout/brand-mark";
+import { StatusMarker } from "@/components/marketing/status-marker";
 import { footerNavigation } from "@/config/navigation";
 import { ROUTES } from "@/config/routes";
 import { siteConfig } from "@/config/site";
@@ -14,11 +15,14 @@ function FooterColumn({
 }): React.ReactElement {
   return (
     <div>
-      <h2 className="mb-3 text-sm font-semibold text-foreground">{title}</h2>
-      <ul className="flex flex-col gap-2">
+      <h2 className="type-label">{title}</h2>
+      <ul className="mt-4 flex flex-col gap-2.5">
         {items.map((item) => (
           <li key={item.href + item.label}>
-            <Link href={item.href} className="text-sm text-muted hover:text-foreground">
+            <Link
+              href={item.href}
+              className="text-sm text-text-secondary transition-colors hover:text-foreground"
+            >
               {item.label}
             </Link>
           </li>
@@ -29,17 +33,42 @@ function FooterColumn({
 }
 
 export function SiteFooter(): React.ReactElement {
+  const year = new Date().getFullYear();
+
   return (
     <footer className="mt-auto border-t border-border bg-surface">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-3">
-        <div>
-          <Link href={ROUTES.home} aria-label="Nudgeio home">
-            <BrandMark />
-          </Link>
-          <p className="mt-4 max-w-xs text-sm text-muted">{siteConfig.tagline}</p>
+      <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1.2fr)_repeat(3,minmax(0,1fr))]">
+          <div>
+            <Link href={ROUTES.home} aria-label={`${siteConfig.name} home`}>
+              <BrandMark />
+            </Link>
+            <p className="type-caption mt-4 max-w-xs">{siteConfig.tagline}</p>
+            <p className="type-caption mt-4 max-w-xs">
+              Pre-launch. We publish what is built and what is not.
+            </p>
+            <Link
+              href={`${ROUTES.home}#build-status`}
+              className="mt-3 inline-flex items-center gap-2 transition-opacity hover:opacity-80"
+            >
+              <StatusMarker state="building" />
+              <span className="type-caption">See build status</span>
+            </Link>
+          </div>
+
+          <FooterColumn title="Product" items={footerNavigation.product} />
+          <FooterColumn title="Reading" items={footerNavigation.reading} />
+          <FooterColumn title="Trust & company" items={footerNavigation.company} />
         </div>
-        <FooterColumn title="Product" items={footerNavigation.product} />
-        <FooterColumn title="Company" items={footerNavigation.company} />
+
+        <div className="mt-14 flex flex-col gap-3 border-t border-border pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="type-metadata">
+            &copy; {year} {siteConfig.name}
+          </p>
+          <p className="type-metadata">
+            No customer logos, metrics, or certifications are claimed on this site.
+          </p>
+        </div>
       </div>
     </footer>
   );

@@ -1,62 +1,96 @@
 @import "tailwindcss";
 
-/* Default = light. Dark via [data-theme="dark"]. Both are first-class. */
+/*
+ * Ink + Ember
+ * ---------------------------------------------------------------------------
+ * Primary actions are near-black ink. Ember is the accent and is deliberately
+ * scarce: links, active states, and the one thing that matters per screen.
+ *
+ * COLOR USAGE RULE — ember (--accent, #b7410e) and warning amber (--warning,
+ * #d97706) are neighbours and will be confused if this is not enforced:
+ *
+ *   ember  -> interactive and brand only. Never a badge, meter, or status dot.
+ *   amber  -> status semantics only. Never a link, button, or brand mark.
+ *
+ * Default = light. Dark via [data-theme="dark"]. Both are first-class.
+ */
 :root,
 [data-theme="light"] {
   color-scheme: light;
 
-  --background: #f5f7fa;
+  --background: #f8fafc;
   --surface: #ffffff;
   --surface-raised: #ffffff;
-  --surface-elevated: #eef2f6;
-  --surface-hover: #e8edf3;
-  --border: #d5dde7;
-  --border-subtle: #e6ebf1;
-  --text-primary: #0f1724;
-  --text-secondary: #4b5568;
-  --text-tertiary: #7b8494;
-  --accent: #0f766e;
-  --accent-hover: #0d9488;
+  --surface-elevated: #f1f5f9;
+  --surface-hover: #e9eef4;
+  --border: #e2e8f0;
+  --border-subtle: #eef2f6;
+  --border-strong: #cbd5e1;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #64748b;
+
+  /* Primary action surface. High-contrast dark-on-light. */
+  --ink: #111827;
+  --ink-hover: #1f2937;
+  --ink-fg: #ffffff;
+
+  /* Brand accent. Scarce by design. */
+  --accent: #b7410e;
+  --accent-hover: #9a360c;
   --accent-fg: #ffffff;
-  --accent-muted: color-mix(in oklab, var(--accent) 12%, white);
-  --focus: #0f766e;
-  --ring: #0f766e;
+  --accent-muted: #fdf3ee;
+  --focus: #b7410e;
+  --ring: #b7410e;
+
+  /* Inverted band — the page's one full tonal inversion. */
+  --inverted-bg: #0f172a;
+  --inverted-surface: #1e293b;
+  --inverted-text: #f8fafc;
+  --inverted-muted: #94a3b8;
+  --inverted-border: #1e293b;
 
   --foreground: var(--text-primary);
   --muted: var(--text-secondary);
 
-  --observed: #0f766e;
-  --inferred: #b45309;
+  --observed: #15803d;
+  --inferred: #d97706;
   --reasoning: #2563eb;
   --evidence: #64748b;
-  --risk-low: #15803d;
-  --risk-medium: #b45309;
-  --risk-high: #c2410c;
-  --danger: #c2410c;
-  --warning: #b45309;
-  --success: #15803d;
-  --critical: #c2410c;
+  --risk-low: #16a34a;
+  --risk-medium: #d97706;
+  --risk-high: #dc2626;
+  --danger: #dc2626;
+  --warning: #d97706;
+  --success: #16a34a;
+  --critical: #dc2626;
   --interactive: var(--accent);
 
-  --signal: #c2410c;
+  --signal: #dc2626;
   --hypothesis: #2563eb;
-  --confidence: #0f766e;
+  --confidence: #334155;
   --nudge: #0f766e;
   --action: #2563eb;
-  --outcome: #15803d;
+  --outcome: #16a34a;
   --knowledge: #64748b;
-  --decision: #a16207;
-  --dependency: #7b8494;
+  --decision: #475569;
+  --dependency: #94a3b8;
 
-  --mock-bg: #0c1017;
-  --mock-panel: #151b26;
-  --mock-panel-elevated: #1c2433;
-  --mock-text: #f1f5f9;
-  --mock-muted: #94a3b8;
-  --mock-indigo: #2dd4bf;
-  --mock-teal: #2dd4bf;
-  --mock-amber: #fbbf24;
-  --mock-border: #2a3344;
+  /*
+   * Mock product UI. These now FOLLOW the theme instead of staying dark in
+   * both, which is what made every demo panel a black island on a light page.
+   * Inside a mock we mimic the real product's own palette (Signal Indigo),
+   * because that is genuinely what the app looks like.
+   */
+  --mock-bg: #f8fafc;
+  --mock-panel: #ffffff;
+  --mock-panel-elevated: #f1f5f9;
+  --mock-text: #0f172a;
+  --mock-muted: #64748b;
+  --mock-indigo: #6366f1;
+  --mock-teal: #0f766e;
+  --mock-amber: #d97706;
+  --mock-border: #e2e8f0;
 
   --grid: transparent;
   --radius-control: 0.5rem;
@@ -81,45 +115,58 @@
   --surface-hover: #232c3c;
   --border: #2c3648;
   --border-subtle: #1c2433;
+  --border-strong: #3b475d;
   --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --text-tertiary: #64748b;
-  --accent: #2dd4bf;
-  --accent-hover: #5eead4;
-  --accent-fg: #042f2e;
-  --accent-muted: color-mix(in oklab, var(--accent) 16%, var(--surface));
-  --focus: #5eead4;
-  --ring: #2dd4bf;
+  --text-secondary: #a8b4c4;
+  --text-tertiary: #7d8899;
 
-  --observed: #2dd4bf;
+  /* Ink inverts in dark mode: the high-contrast action becomes light-on-dark. */
+  --ink: #f8fafc;
+  --ink-hover: #e2e8f0;
+  --ink-fg: #0f172a;
+
+  --accent: #f97316;
+  --accent-hover: #fdba74;
+  --accent-fg: #1a0d05;
+  --accent-muted: color-mix(in oklab, var(--accent) 16%, var(--surface));
+  --focus: #fdba74;
+  --ring: #f97316;
+
+  --inverted-bg: #1c2433;
+  --inverted-surface: #232c3c;
+  --inverted-text: #f1f5f9;
+  --inverted-muted: #a8b4c4;
+  --inverted-border: #2c3648;
+
+  --observed: #4ade80;
   --inferred: #fbbf24;
   --reasoning: #60a5fa;
-  --evidence: #94a3b8;
+  --evidence: #a8b4c4;
   --risk-low: #4ade80;
   --risk-medium: #fbbf24;
-  --risk-high: #fb923c;
-  --danger: #fb923c;
+  --risk-high: #f87171;
+  --danger: #f87171;
   --warning: #fbbf24;
   --success: #4ade80;
-  --critical: #fb923c;
+  --critical: #f87171;
   --interactive: var(--accent);
 
-  --signal: #fb923c;
+  --signal: #f87171;
   --hypothesis: #60a5fa;
-  --confidence: #2dd4bf;
+  --confidence: #cbd5e1;
   --nudge: #2dd4bf;
   --action: #60a5fa;
   --outcome: #4ade80;
-  --knowledge: #94a3b8;
-  --decision: #fbbf24;
-  --dependency: #94a3b8;
+  --knowledge: #a8b4c4;
+  --decision: #cbd5e1;
+  --dependency: #7d8899;
 
-  --mock-bg: #070a10;
-  --mock-panel: #121820;
-  --mock-panel-elevated: #1a2230;
+  --mock-bg: #10151e;
+  --mock-panel: #161c27;
+  --mock-panel-elevated: #1e2634;
   --mock-text: #f1f5f9;
   --mock-muted: #94a3b8;
-  --mock-indigo: #2dd4bf;
+  --mock-indigo: #7c8cff;
   --mock-teal: #2dd4bf;
   --mock-amber: #fbbf24;
   --mock-border: #2a3344;
@@ -135,13 +182,22 @@
   --color-surface-hover: var(--surface-hover);
   --color-border: var(--border);
   --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-text-tertiary: var(--text-tertiary);
+  --color-ink: var(--ink);
+  --color-ink-hover: var(--ink-hover);
+  --color-ink-fg: var(--ink-fg);
   --color-accent: var(--accent);
   --color-accent-fg: var(--accent-fg);
   --color-accent-muted: var(--accent-muted);
   --color-accent-hover: var(--accent-hover);
+  --color-inverted-bg: var(--inverted-bg);
+  --color-inverted-surface: var(--inverted-surface);
+  --color-inverted-text: var(--inverted-text);
+  --color-inverted-muted: var(--inverted-muted);
+  --color-inverted-border: var(--inverted-border);
   --color-focus: var(--focus);
   --color-observed: var(--observed);
   --color-inferred: var(--inferred);
@@ -177,6 +233,7 @@
   --color-mock-border: var(--mock-border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display);
   --radius-sm: var(--radius-sm);
   --radius-md: var(--radius-md);
   --radius-lg: var(--radius-lg);
@@ -199,32 +256,40 @@ body {
   color: var(--text-primary);
 }
 
+/* ---------------------------------------------------------------------------
+ * Typography. Display face carries headlines; Geist carries body and UI;
+ * mono is doing semantic work (IDs, metrics, evidence), never decoration.
+ * ------------------------------------------------------------------------ */
+
 .type-display {
-  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
-  font-weight: 600;
-  letter-spacing: -0.035em;
-  line-height: 1.08;
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-size: clamp(2.5rem, 5.2vw, 4.25rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.04;
 }
 
 .type-page-title {
-  font-size: clamp(1.75rem, 2.5vw, 2.25rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-size: clamp(2rem, 3.2vw, 2.875rem);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
 }
 
 .type-section-title {
-  font-size: clamp(1.375rem, 2vw, 1.75rem);
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  line-height: 1.2;
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-size: clamp(1.625rem, 2.4vw, 2.125rem);
+  font-weight: 400;
+  letter-spacing: -0.012em;
+  line-height: 1.15;
 }
 
 .type-subsection {
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.35;
+  letter-spacing: -0.015em;
+  line-height: 1.4;
 }
 
 .type-metric {
@@ -236,23 +301,31 @@ body {
   line-height: 1.1;
 }
 
+.type-lead {
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 62ch;
+}
+
 .type-body {
   font-size: 1rem;
-  line-height: 1.65;
+  line-height: 1.7;
   color: var(--text-secondary);
-  max-width: 65ch;
+  max-width: 68ch;
 }
 
 .type-body-small {
   font-size: 0.875rem;
-  line-height: 1.55;
+  line-height: 1.6;
   color: var(--text-secondary);
 }
 
 .type-label {
+  font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  font-weight: 500;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-tertiary);
 }
@@ -266,7 +339,7 @@ body {
 
 .type-caption {
   font-size: 0.8125rem;
-  line-height: 1.45;
+  line-height: 1.5;
   color: var(--text-tertiary);
 }
 
@@ -275,18 +348,170 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
-h1,
-h2 {
-  font-family: inherit;
-  letter-spacing: -0.03em;
+.type-quote {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  text-wrap: balance;
   color: var(--text-primary);
 }
+
+h1,
+h2 {
+  color: var(--text-primary);
+}
+
+/* ---------------------------------------------------------------------------
+ * Section rhythm. The page alternates assertion and proof; these are the
+ * shapes that alternation is built from.
+ * ------------------------------------------------------------------------ */
+
+.band-tinted {
+  background: var(--surface-elevated);
+  border-block: 1px solid var(--border-subtle);
+}
+
+.band-paper {
+  background: var(--surface);
+  border-block: 1px solid var(--border-subtle);
+}
+
+.band-inverted {
+  background: var(--inverted-bg);
+  color: var(--inverted-text);
+}
+
+.band-inverted .type-body,
+.band-inverted .type-body-small,
+.band-inverted .type-lead {
+  color: var(--inverted-muted);
+}
+
+.band-inverted .type-label,
+.band-inverted .type-caption,
+.band-inverted .type-metadata {
+  color: var(--inverted-muted);
+}
+
+.band-inverted .type-display,
+.band-inverted .type-page-title,
+.band-inverted .type-section-title,
+.band-inverted .type-quote,
+.band-inverted h1,
+.band-inverted h2,
+.band-inverted h3 {
+  color: var(--inverted-text);
+}
+
+.rule-hairline {
+  border-top: 1px solid var(--border);
+}
+
+/*
+ * Body copy for content pages.
+ *
+ * Every selector is wrapped in :where() so it contributes ZERO specificity.
+ * Pages that style an element explicitly (a Tailwind class on an h2, say) still
+ * win, which is what lets this be applied to nineteen existing pages without
+ * auditing the markup of each one.
+ */
+.page-body :where(p) {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 68ch;
+}
+
+.page-body :where(h2) {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-size: clamp(1.5rem, 2.2vw, 1.875rem);
+  font-weight: 400;
+  letter-spacing: -0.012em;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-top: 0.5rem;
+}
+
+.page-body :where(h3) {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+/*
+ * Prose lists only. A list that carries its own className is a layout (a card
+ * grid, a table of links), not body copy - so it opts out of bullets and the
+ * measure cap by virtue of being styled at all.
+ */
+.page-body :where(ul:not([class]), ol:not([class])) {
+  display: grid;
+  gap: 0.625rem;
+  max-width: 68ch;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.page-body :where(ul:not([class])) {
+  list-style: none;
+}
+
+.page-body :where(ul:not([class])) > :where(li) {
+  position: relative;
+  padding-left: 1.125rem;
+}
+
+.page-body :where(ul:not([class])) > :where(li)::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 0.3125rem;
+  height: 0.3125rem;
+  border-radius: 999px;
+  background: var(--border-strong);
+}
+
+.page-body :where(ol:not([class])) {
+  list-style: decimal;
+  padding-left: 1.25rem;
+}
+
+.page-body :where(a) {
+  color: var(--accent);
+  text-underline-offset: 4px;
+}
+
+.page-body :where(a:hover) {
+  text-decoration: underline;
+}
+
+.page-body :where(strong) {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.page-body :where(code) {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.875em;
+  padding: 0.1em 0.35em;
+  border-radius: var(--radius-sm);
+  background: var(--surface-elevated);
+  color: var(--text-primary);
+}
+
+/* ---------------------------------------------------------------------------
+ * Surfaces
+ * ------------------------------------------------------------------------ */
 
 .gtm-panel {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-surface);
-  box-shadow: 0 12px 40px color-mix(in oklab, black 8%, transparent);
+  box-shadow: 0 1px 2px color-mix(in oklab, black 5%, transparent);
 }
 
 [data-theme="dark"] .gtm-panel {
@@ -305,20 +530,52 @@ h2 {
   }
 }
 
+/* ---------------------------------------------------------------------------
+ * Product frame — every code-built mockup lives inside this chrome, which
+ * carries the mandatory Example label so honesty is structural rather than
+ * per-component discipline.
+ * ------------------------------------------------------------------------ */
+
+.product-frame {
+  background: var(--mock-bg);
+  color: var(--mock-text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow:
+    0 1px 2px color-mix(in oklab, black 4%, transparent),
+    0 12px 32px -8px color-mix(in oklab, black 12%, transparent),
+    0 32px 64px -24px color-mix(in oklab, black 14%, transparent);
+}
+
+[data-theme="dark"] .product-frame {
+  border-color: var(--mock-border);
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, white 4%, transparent),
+    0 28px 72px color-mix(in oklab, black 50%, transparent);
+}
+
+.product-frame-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 0.875rem;
+  background: var(--mock-panel-elevated);
+  border-bottom: 1px solid var(--mock-border);
+}
+
 .mock-ui,
 .theater-stage {
   background: var(--mock-bg);
   color: var(--mock-text);
   border: 1px solid var(--mock-border);
   border-radius: var(--radius-lg);
-  box-shadow: 0 24px 64px color-mix(in oklab, black 18%, transparent);
+  box-shadow: 0 12px 32px -12px color-mix(in oklab, black 14%, transparent);
 }
 
 [data-theme="dark"] .mock-ui,
 [data-theme="dark"] .theater-stage {
-  box-shadow:
-    0 0 0 1px color-mix(in oklab, var(--accent) 10%, transparent),
-    0 28px 72px color-mix(in oklab, black 50%, transparent);
+  box-shadow: 0 28px 72px color-mix(in oklab, black 50%, transparent);
 }
 
 .integration-hub-grid {
@@ -338,8 +595,9 @@ h2 {
 }
 
 .mock-label {
+  font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 0.6875rem;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--mock-muted);
 }
@@ -352,15 +610,17 @@ h2 {
 
 .hero-atmosphere {
   background:
-    radial-gradient(ellipse 65% 55% at 100% 0%, color-mix(in oklab, var(--accent) 12%, transparent), transparent 58%),
-    radial-gradient(ellipse 45% 40% at 0% 90%, color-mix(in oklab, var(--accent) 7%, transparent), transparent 52%),
-    linear-gradient(180deg, color-mix(in oklab, var(--surface) 70%, var(--background)), var(--background));
+    radial-gradient(ellipse 70% 60% at 88% -10%, var(--accent-muted), transparent 60%),
+    linear-gradient(180deg, var(--surface), var(--background));
 }
 
 [data-theme="dark"] .hero-atmosphere {
   background:
-    radial-gradient(ellipse 70% 50% at 90% 10%, color-mix(in oklab, var(--accent) 16%, transparent), transparent 55%),
-    radial-gradient(ellipse 50% 40% at 0% 100%, color-mix(in oklab, var(--accent) 8%, transparent), transparent 50%),
+    radial-gradient(
+      ellipse 70% 50% at 90% 10%,
+      color-mix(in oklab, var(--accent) 14%, transparent),
+      transparent 55%
+    ),
     var(--background);
 }
 
@@ -368,6 +628,7 @@ h2 {
   transition:
     transform var(--motion-micro) var(--ease-out),
     border-color var(--motion-micro) var(--ease-out),
+    box-shadow var(--motion-micro) var(--ease-out),
     background-color var(--motion-micro) var(--ease-out);
 }
 
@@ -451,7 +712,8 @@ h2 {
 
   .lift:hover {
     transform: translateY(-2px);
-    border-color: color-mix(in oklab, var(--accent) 35%, var(--border));
+    border-color: var(--border-strong);
+    box-shadow: 0 8px 24px -12px color-mix(in oklab, black 18%, transparent);
   }
 }
 
