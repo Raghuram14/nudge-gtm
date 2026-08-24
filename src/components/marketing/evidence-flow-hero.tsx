@@ -10,7 +10,7 @@ import type { EvidenceRefs, Investigation } from "@/lib/marketing/types";
 const flowNodes = [
   { id: "pr", label: "PR", x: 48, fill: "var(--mock-teal)" },
   { id: "issue", label: "Issue", x: 128, fill: "var(--mock-indigo)" },
-  { id: "svc", label: "Service", x: 208, fill: "#4fa3ff" },
+  { id: "svc", label: "Service", x: 208, fill: "var(--reasoning)" },
   { id: "why", label: "Why", x: 288, fill: "var(--mock-amber)" },
 ] as const;
 
@@ -38,7 +38,7 @@ export function EvidenceFlowHero({
       { id: evidence.pr, color: "var(--mock-teal)" },
       { id: evidence.issue, color: "var(--mock-indigo)" },
       { id: evidence.incident, color: "var(--mock-amber)" },
-      { id: evidence.service, color: "#4fa3ff" },
+      { id: evidence.service, color: "var(--reasoning)" },
     ],
     [evidence],
   );
@@ -60,7 +60,7 @@ export function EvidenceFlowHero({
 
   return (
     <div ref={rootRef} className="h-full">
-      <Card className="mock-ui flash-edge animate-float relative flex min-h-[420px] flex-col overflow-hidden p-0">
+      <Card className="mock-ui relative flex min-h-[420px] flex-col overflow-hidden p-0">
         <div className="relative flex items-center justify-between gap-3 border-b border-mock-border px-5 py-3">
           <div className="flex items-center gap-2">
             <span className="size-2 animate-pulse rounded-full bg-mock-teal" />
@@ -93,7 +93,7 @@ export function EvidenceFlowHero({
                 <linearGradient id="hero-spark-stroke" x1="0" y1="0" x2="1" y2="0">
                   <stop offset="0%" stopColor="var(--mock-teal)" />
                   <stop offset="50%" stopColor="var(--mock-amber)" />
-                  <stop offset="100%" stopColor="#f07a6a" />
+                  <stop offset="100%" stopColor="var(--risk-high)" />
                 </linearGradient>
               </defs>
               <polygon
@@ -114,7 +114,7 @@ export function EvidenceFlowHero({
                 cx="296"
                 cy="8"
                 r="4"
-                fill="#f07a6a"
+                fill="var(--risk-high)"
                 className={visible ? "spark-dot" : "opacity-0"}
               />
             </svg>

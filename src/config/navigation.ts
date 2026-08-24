@@ -16,8 +16,8 @@ export const primaryNavigation: ReadonlyArray<NavItem> = [
 ];
 
 export const headerCta = {
-  href: `${ROUTES.contact}?intent=${ctaConfig.seeInAction.intent}`,
-  label: ctaConfig.seeInAction.label,
+  href: `${ROUTES.contact}?intent=${ctaConfig.earlyAccess.intent}`,
+  label: ctaConfig.earlyAccess.label,
 };
 
 export const footerNavigation = {

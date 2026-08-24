@@ -36,7 +36,7 @@ export function IntegrationDetailPage({
       <div className="flex items-center gap-3">
         <IntegrationLogo slug={integration.slug} name={integration.name} size="lg" />
         <Badge tone={coming ? "coming" : "accent"}>
-          {coming ? "Coming soon" : "Available"}
+          {coming ? "Coming soon" : "Design-partner scope"}
         </Badge>
       </div>
       <h2 className="text-xl font-semibold text-foreground">What connects</h2>

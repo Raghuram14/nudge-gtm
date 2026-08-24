@@ -32,7 +32,7 @@ Honest MVP direction (as of the product repo): **GitHub + Jira** → canonical e
 
 ## Tokens
 
-Dark/neutral technical foundation, restrained teal accent, semantic status colors, distinct inferred vs observed treatment. Marketing density: more air than a product app, still serious. No purple AI candy, no fake neon dashboards.
+See [ADR 0002](adr/0002-visual-system.md): light marketing canvas, dark product mocks, restrained teal accent. No purple AI candy, no fake neon dashboards.
 
 ## Content model
 

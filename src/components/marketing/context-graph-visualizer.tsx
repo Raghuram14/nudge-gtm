@@ -175,7 +175,7 @@ export function ContextGraphVisualizer({
                 x={node.x + NODE_W / 2}
                 y={node.y + NODE_H / 2 + 4}
                 textAnchor="middle"
-                fill={selected ? "#ffffff" : colors.text}
+                fill={selected ? "var(--mock-text)" : colors.text}
                 className="pointer-events-none text-[11px] font-semibold"
               >
                 {node.label}

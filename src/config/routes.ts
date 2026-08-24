@@ -31,6 +31,7 @@ export const ROUTES = {
   engineeringOnboarding: "/engineering-onboarding",
   architectureKnowledge: "/architecture-knowledge",
   engineeringInvestigation: "/engineering-investigation",
+  compareHatica: "/compare/nudgeio-vs-hatica",
 } as const;
 
 export type RoutePath = (typeof ROUTES)[keyof typeof ROUTES];

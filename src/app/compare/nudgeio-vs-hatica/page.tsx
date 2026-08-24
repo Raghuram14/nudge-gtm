@@ -8,7 +8,7 @@ export const metadata: Metadata = buildPageMetadata({
   title: "Nudgeio vs Hatica",
   description:
     "Placeholder comparison. No unsourced feature matrix. Measurement philosophy: systems over individual activity.",
-  path: "/compare/nudgeio-vs-hatica",
+  path: ROUTES.compareHatica,
   noindex: true,
 });
 
@@ -17,7 +17,7 @@ export default function Page(): React.ReactElement {
     <SimplePage
       crumbs={[
         { href: ROUTES.compare, label: "Compare" },
-        { href: "/compare/nudgeio-vs-hatica", label: "vs Hatica" },
+        { href: ROUTES.compareHatica, label: "vs Hatica" },
       ]}
       title="Nudgeio vs Hatica"
       description="This stub is noindex until we have sourced, dated facts. We will not invent a win matrix."

@@ -17,10 +17,10 @@ export function HomeCommandDashboard({
   const { kpis, drivers, sideStats } = dashboard;
 
   return (
-    <Card className="mock-ui flash-edge animate-float relative overflow-hidden p-0">
+    <Card className="mock-ui relative overflow-hidden p-0">
       <div className="relative flex items-center justify-between gap-3 border-b border-mock-border px-5 py-4">
         <div className="flex items-center gap-3">
-          <span className="size-2 animate-pulse rounded-full bg-mock-teal shadow-[0_0_10px_var(--mock-teal)]" />
+          <span className="size-2 animate-pulse rounded-full bg-mock-teal" />
           <div>
             <p className="text-sm font-medium text-mock-text">{company.name}</p>
             <p className="mock-label mt-0.5">
@@ -46,8 +46,8 @@ export function HomeCommandDashboard({
             <stop offset="100%" stopColor="var(--mock-teal)" stopOpacity="0" />
           </linearGradient>
           <linearGradient id="kpi-fill-coral" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#f07a6a" stopOpacity="0.4" />
-            <stop offset="100%" stopColor="#f07a6a" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--risk-high)" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="var(--risk-high)" stopOpacity="0" />
           </linearGradient>
         </defs>
       </svg>

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { ContextGraphVisualizer } from "@/components/marketing/context-graph-visualizer";
 import { MachinePageContract } from "@/components/marketing/machine-page-contract";
 import { SimplePage } from "@/components/marketing/simple-page";
+import { contextGraphCopy } from "@/config/platform-copy";
 import { ROUTES } from "@/config/routes";
 import { getHomeDemoData } from "@/lib/api/home-demo";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -36,21 +37,15 @@ export default async function Page(): Promise<React.ReactElement> {
     >
       <h2 className="text-xl font-semibold text-foreground">What it is</h2>
       <p>
-        An engineering context / knowledge graph connects Organization → Team → Person →
-        Project → Sprint → Work item → Pull request → Review → Build → Deployment → Service →
-        Incident, including customer or product impact when that data exists.
+        An engineering context / knowledge graph connects {contextGraphCopy.entityChain}
       </p>
       <ContextGraphVisualizer layout={demo.contextGraph} />
       <h2 className="text-xl font-semibold text-foreground">Why it exists</h2>
       <p>
-        Metrics describe what moved. Without relationships, you cannot diagnose why a sprint is
-        at risk, which dependency is blocking work, or which service a change affects.
+        Metrics describe what moved. {contextGraphCopy.whyRelationships}
       </p>
       <h2 className="text-xl font-semibold text-foreground">Available today vs later</h2>
-      <p>
-        The current product direction is a vertical slice: GitHub + Jira into canonical entities
-        and graph context. Broader ingest is coming soon.
-      </p>
+      <p>{contextGraphCopy.verticalSlice}</p>
       <MachinePageContract
         what="A Knowledge Graph of engineering context (Context Graph)."
         who="Engineering leaders who need system-level understanding."
@@ -59,7 +54,7 @@ export default async function Page(): Promise<React.ReactElement> {
         data="GitHub and Jira first; other sources coming soon."
         output="Traversable context for investigations and Ask Nudgeio."
         availability="Design-partner direction for GitHub + Jira. Not a claimed production graph for all sources."
-        differ="Not “we have Neo4j.” The product is connected context."
+        differ={contextGraphCopy.notGraphDb}
         learnMore="Engineering Intelligence, Project health, GitHub and Jira pages."
       />
     </SimplePage>

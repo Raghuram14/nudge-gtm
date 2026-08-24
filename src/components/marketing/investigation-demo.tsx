@@ -111,12 +111,14 @@ export function InvestigationDemo({
               const done = index < stepIndex;
               return (
                 <li key={step.id}>
-                  <button
+                  <Button
                     type="button"
+                    variant="ghost"
+                    size="sm"
                     disabled={idle}
                     onClick={() => goTo(index)}
                     className={cn(
-                      "w-full rounded-lg px-1 py-2 text-center transition-colors",
+                      "h-auto w-full rounded-lg px-1 py-2 text-center hover:translate-y-0",
                       idle && "cursor-default opacity-40",
                       !idle && "hover:bg-accent-muted/60",
                       active && "bg-accent-muted",
@@ -136,7 +138,7 @@ export function InvestigationDemo({
                     >
                       {step.label}
                     </span>
-                  </button>
+                  </Button>
                 </li>
               );
             })}

@@ -24,7 +24,7 @@ export function IntegrationPill({
             "shrink-0 rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide",
             dark
               ? "bg-[color-mix(in_oklab,var(--mock-amber)_22%,transparent)] text-mock-amber"
-              : "bg-[color-mix(in_oklab,var(--inferred)_22%,white)] text-[#8a5a00]",
+              : "bg-[color-mix(in_oklab,var(--inferred)_22%,white)] text-inferred-fg",
           )}
         >
           Soon

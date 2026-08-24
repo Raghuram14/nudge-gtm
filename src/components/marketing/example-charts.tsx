@@ -75,7 +75,7 @@ export function ExampleRiskMeter(): React.ReactElement {
 
 export function HeroMetricsPanel(): React.ReactElement {
   return (
-    <Card className="gtm-panel flash-edge delay-hero animate-float flex h-full flex-col border-accent bg-surface">
+    <Card className="gtm-panel flex h-full flex-col border-accent bg-surface">
       <div className="mb-4 flex items-center justify-between gap-2">
         <p className="text-sm font-medium">Project Alpha · this sprint</p>
         <Badge tone="example">Example</Badge>

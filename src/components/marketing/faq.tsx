@@ -3,6 +3,7 @@
 import { ChevronRight } from "lucide-react";
 import { useState } from "react";
 
+import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
 import type { FaqItem } from "@/config/faq";
 import { cn } from "@/lib/cn";
@@ -18,10 +19,11 @@ export function Faq({ items }: { items: ReadonlyArray<FaqItem> }): React.ReactEl
           const selected = index === active;
           return (
             <li key={item.question}>
-              <button
+              <Button
                 type="button"
+                variant="ghost"
                 className={cn(
-                  "flex min-h-14 w-full items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left text-sm font-medium",
+                  "h-auto min-h-14 w-full justify-between gap-3 rounded-xl border px-4 py-3 text-left text-sm font-medium hover:translate-y-0",
                   selected
                     ? "border-accent bg-accent-muted text-foreground"
                     : "border-border bg-surface text-muted hover:border-accent hover:text-foreground",
@@ -31,7 +33,7 @@ export function Faq({ items }: { items: ReadonlyArray<FaqItem> }): React.ReactEl
               >
                 <span>{item.question}</span>
                 <Icon icon={ChevronRight} className={selected ? "text-accent" : undefined} />
-              </button>
+              </Button>
               {selected ? (
                 <p className="px-1 py-3 text-sm text-muted lg:hidden">{item.answer}</p>
               ) : null}
